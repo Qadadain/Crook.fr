@@ -7,32 +7,6 @@ This repository is a simple PHP MVC structure from scratch.
 It uses some cool vendors/libraries such as Twig and Grumphp.
 For this one, just a simple example where users can choose one of their databases and see tables in it.
 
-### Prerequisites
-
-Use this template repository to a new Github repository in WildCodeSchool organization following this exemple :
-`<campus>-<langage>-<YYMM>-<type>-<name>` as **bordeaux-php-1903-project2-servyy**
-
-### Check on Travis
-
-1. Go on [https://travis-ci.com](https://travis-ci.com).
-2. Sign up if you don't have account,
-3. Look for your project in search bar on the left,
-4. As soon as your repository have a `.travis.yml` in root folder, Travis should detect it and run test.
-5. Configure Travis as described in the screenshot below, this is needed to avoid performance issues.
-
-> You can watch this screenshot to see minimum mandatory configuration : ![basic config](http://images.innoveduc.fr/symfony4/travis-config.png)
-
-
-
-### Configure you repository - Settings options
-
-1. Add your students team as contributor .
-2. Disallow both on 'dev' and 'master' branches your students writing credentials. 
-3. Disallow merge available while one approbation is not submitted on PR.
-
-> You can watch this very tiny short video : (Loom : verrouillage branches GitHub)[https://www.loom.com/share/ad0c641d0b9447be9e40fa38a499953b]
-
-
 ## Steps
 
 1. Clone the repo from Github.

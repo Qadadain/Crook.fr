@@ -1,0 +1,151 @@
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: normal;
+    src: local('Fira Code'),
+    url('../fonts/FiraCode-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: bold;
+    src: local('Fira Code'),
+    url('../fonts/FiraCode-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Russo One";
+    font-style: normal;
+    font-width: normal;
+    src: local('Russo One'),
+    url("../fonts/RussoOne-Regular.ttf") format('truetype');
+}
+h1, h2, h3, h4, h5 {
+    font-family: "Russo One", sans-serif;
+}
+body {
+    font-family: "Fira Code", sans-serif;
+}
+/*
+    Navbar
+ */
+
+
+
+/*
+    Card
+ */
+
+
+
+/*
+    Carousel
+ */
+
+
+
+/*
+    Form
+ */
+@media (min-width: 576px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}
+
+@media (min-width: 768px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}
+
+@media (min-width: 992px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}
+
+@media (min-width: 1200px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}

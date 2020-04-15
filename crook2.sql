@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 14 avr. 2020 à 15:56
+-- Généré le :  mer. 15 avr. 2020 à 10:04
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.1.32
 
@@ -31,12 +31,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE IF NOT EXISTS `language` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` int(11) NOT NULL,
-  `color` int(11) NOT NULL,
-  `image` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `color` varchar(10) DEFAULT NULL,
+  `image` text,
   `is_valid` tinyint(4) NOT NULL,
   `create_at` date NOT NULL,
-  `update_at` date NOT NULL,
+  `update_at` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -76,10 +76,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(250) NOT NULL,
   `role_user` varchar(100) NOT NULL,
   `create_at` date NOT NULL,
-  `update_at` date NOT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`)
+  `update_at` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -92,12 +90,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 ALTER TABLE `sheet`
   ADD CONSTRAINT `sheet_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `sheet_ibfk_2` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`);
-
---
--- Contraintes pour la table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -4,3 +4,5 @@
 *.cache
 db.php
 .idea
+crook2.sql
+script.php

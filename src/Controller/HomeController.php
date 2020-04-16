@@ -8,12 +8,10 @@
 
 namespace App\Controller;
 
-
 use App\Model\CardManager;
 
 class HomeController extends AbstractController
 {
-
     /**
      * Display home page
      *
@@ -25,12 +23,9 @@ class HomeController extends AbstractController
     public function index()
     {
         $cardManager = new CardManager();
-        $sheets = $cardManager->selectAll();
-        $test = 0;
+        $sheets = $cardManager->getCardPicture();
         return $this->twig->render('Home/index.html.twig', [
             'sheets'=>$sheets,
-            'test'=> $test,
         ]);
     }
-
 }

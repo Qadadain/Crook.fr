@@ -29,6 +29,14 @@ body {
     Navbar
  */
 
+.logo-image{
+    width: 132px;
+    height: 68px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+
+}
 
 
 /*

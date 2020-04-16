@@ -38,6 +38,11 @@ body {
 
 }
 
+h3{
+
+    color: aliceblue;
+}
+
 
 /*
     Card
@@ -54,6 +59,31 @@ body {
 /*
     Form
  */
+
+/*
+    Foooter
+ */
+
+.footer{
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    line-height: auto;
+    background-color: #343A40;
+
+
+}
+
+.col-md-2{
+
+    color: aliceblue;
+}
+h6{
+
+    color: aliceblue;
+}
 @media (min-width: 576px) {
 
     /*

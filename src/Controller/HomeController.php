@@ -26,8 +26,10 @@ class HomeController extends AbstractController
     {
         $cardManager = new CardManager();
         $sheets = $cardManager->selectAll();
+        $test = 0;
         return $this->twig->render('Home/index.html.twig', [
             'sheets'=>$sheets,
+            'test'=> $test,
         ]);
     }
 

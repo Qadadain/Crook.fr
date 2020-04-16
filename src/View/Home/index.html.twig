@@ -1,11 +1,24 @@
 {% extends 'layout.html.twig' %}
-
-{% block content %}
-    {# todo Carousel #}
-    {# end Carousel #}
-    {% for sheet in sheets %}
-        {%include '_Components/_card.html.twig'  %}
-    {% endfor %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 {% endblock %}
+{% block content %}
+
+    {# todo Carousel #}
+<div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "groupCells": true }'>
+    {% for sheet in sheets %}
+        <div class="carousel-cell">{%include '_Components/_card.html.twig'  %} {%include '_Components/_modal.html.twig'  %}</div>
+    {% endfor %}
+</div>
+    {# end Carousel #}
+{% endblock %}
+{% block javascript %}
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% endblock %}
+
+
+
+
+
 
 

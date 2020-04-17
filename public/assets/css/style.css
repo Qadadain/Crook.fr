@@ -29,7 +29,16 @@ body {
     Navbar
  */
 
-
+.logo-image {
+    width: 132px;
+    height: 68px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+h3 {
+    color: aliceblue;
+}
 
 /*
     Card
@@ -43,9 +52,31 @@ body {
 
 
 
+
+/* cell number */
+
+
+
 /*
     Form
  */
+
+/*
+    Foooter
+ */
+
+.footer {
+    padding-top: 3px;
+    width: 100%;
+    height: auto;
+    background-color: #343A40;
+}
+.col-md-2 {
+    color: aliceblue;
+}
+h6 {
+    color: aliceblue;
+}
 @media (min-width: 576px) {
 
     /*

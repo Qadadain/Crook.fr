@@ -3,7 +3,8 @@
 
 namespace App\Controller;
 
-use App\Model\FormManager;
+use App\Model\LanguageManager;
+use App\Service\FormService;
 
 class FormController extends AbstractController
 {
@@ -17,10 +18,16 @@ class FormController extends AbstractController
      */
     public function add()
     {
-        $formManager = new FormManager();
-        $languages = $formManager->getAllByName();
+        if (!empty($_POST)) {
+            $formService = new FormService();
+            $messages = $formService->validateForm($_POST);
+        }
+        $languageManager = new LanguageManager();
+        $languages = $languageManager->getAllByName();
         return $this->twig->render('Form/form.html.twig', [
             'languages' => $languages,
+            'post' => $_POST,
+            'messages' => isset($messages) ? $messages : null,
         ]);
     }
 }

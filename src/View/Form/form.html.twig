@@ -2,27 +2,42 @@
 {% block content %}
     <section class="container-fluid">
         <h2 class="text-center">Ajout de sheet</h2>
-        <form action="" method="post">
+        {% if messages is iterable %}
+            <div class="bg-danger text-center">
+                {% for message in messages %}
+                    <p class="text-light">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="bg-success text-center">
+                <p class="text-light">{{ messages }}</p>
+            </div>
+        {% endif %}
+        <form method="post">
             <div class="form-group">
                 <label for="title">Titre</label>
-                <input type="text" class="form-control" placeholder="in_array()">
+                <input type="text" class="form-control" placeholder="in_array()" name="title" value="{{ post is defined ? post.title : '' }}" required>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" placeholder="Une courte description de sont utilité">
+                <input type="text" class="form-control" placeholder="Une courte description de sont utilité" name="description" value="{{ post is defined ? post.description : '' }}" required>
             </div>
             <div class="form-group">
                 <label for="language">Language</label>
-                <select name="language" id="language" class="form-control">
+                <select name="language" id="language" class="form-control" name="language" required>
                     <option value="0">Veuillez choisir un language</option>
                     {% for language in languages %}
-                        <option value="{{ language.name }}">{{ language.name }}</option>
+                        {% if post is defined and post.language is same as(language.id) %}
+                            <option value="{{ language.id }}" selected>{{ language.name }}</option>
+                        {% else %}
+                            <option value="{{ language.id }}">{{ language.name }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
             <div class="form-group">
                 <label for="content">Ajoute ton sheet</label>
-                <textarea name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+                <textarea name="content" id="content" class="form-control" cols="30" rows="10" required></textarea>
             </div>
             <div class="form-group row">
                 <div class="col-6 text-center">

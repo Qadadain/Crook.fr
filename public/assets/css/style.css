@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: normal;
+    src: local('Fira Code'),
+    url('../fonts/FiraCode-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: bold;
+    src: local('Fira Code'),
+    url('../fonts/FiraCode-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Russo One";
+    font-style: normal;
+    font-width: normal;
+    src: local('Russo One'),
+    url("../fonts/RussoOne-Regular.ttf") format('truetype');
+}
+h1, h2, h3, h4, h5 {
+    font-family: "Russo One", sans-serif;
+}
+body {
+    font-family: "Fira Code", sans-serif;
+}
+/*
+    Navbar
+ */
+
+.logo-image {
+    width: 132px;
+    height: 68px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+h3 {
+    color: aliceblue;
+}
+
+/*
+    Card
+ */
+
+
+
+/*
+    Carousel
+ */
+
+
+
+
+/* cell number */
+
+
+
+/*
+    Form
+ */
+
+/*
+    Foooter
+ */
+
+.footer {
+    padding-top: 3px;
+    width: 100%;
+    height: auto;
+    background-color: #343A40;
+}
+.col-md-2 {
+    color: aliceblue;
+}
+h6 {
+    color: aliceblue;
+}
+@media (min-width: 576px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}
+
+@media (min-width: 768px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}
+
+@media (min-width: 992px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}
+
+@media (min-width: 1200px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+}

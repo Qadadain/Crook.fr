@@ -1,20 +1,171 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}{% endblock %}</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
     {% block stylesheet %}{% endblock %}
     <link rel="icon" href="/assets/images/favicon.png">
 </head>
-
 <body>
+{# todo NAVBAR #}
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+    <a class="navbar-brand" href="">
+        <div class="logo-image">
+            <img src="https://zupimages.net/up/20/16/3j1o.png" class="img-fluid">
+        </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Languages
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">PHP</a>
+                    <a class="dropdown-item" href="#">JAVA</a>
+                    <a class="dropdown-item" href="#">JavaScript</a>
+                    <a class="dropdown-item" href="#">Python</a>
+                    <a class="dropdown-item" href="#">C#</a>
+                    <a class="dropdown-item" href="#">C++</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Other languages</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button type="button" class="btn btn-dark">Search</button>
+
+        </form>
+    </div>
+</nav>
+
+{#  End NAVBAR #}
 {% block content %}{% endblock %}
+
+{# todo FOOTER #}
+
+<footer class="footer">
+
+    <div class="container">
+        <span class="text-muted">
+
+<!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">Crook</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>We profide you cheat sheet to be a better programmer.</p>
+
+      </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Languages</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!">PHP</a>
+        </p>
+        <p>
+          <a href="#!">JAVA</a>
+        </p>
+        <p>
+          <a href="#!">Javascript</a>
+        </p>
+        <p>
+          <a href="#!">Other languages</a>
+        </p>
+
+      </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!">Your Account</a>
+        </p>
+        <p>
+          <a href="#!">Become member of the team </a>
+        </p>
+        <p>
+          <a href="#!">FAQ</a>
+        </p>
+
+      </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-home mr-3"></i> Bordeaux, France</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i> crookteam@example.com</p>
+
+      </div>
+        <!-- Grid column -->
+
+    </div>
+      <!-- Grid row -->
+
+  </div>
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+
+        </span>
+    </div>
+
+</footer>
+
+{#  End FOOTER #}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 {% block javascript %}{% endblock %}
 </body>
 </html>

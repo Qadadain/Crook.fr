@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Service\UserService;
 
 class UserController extends AbstractController
 {
@@ -15,8 +16,16 @@ class UserController extends AbstractController
         return 'toto';
     }
 
-    public function register()
+    public function register(array $post)
     {
-        return 'toto';
+        $messages =[];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $userService = new UserService();
+                $messages = $userService->validateFormUser($_POST);
+        }
+        return $this->twig->render('User/user.html.twig', [
+            'errors'=>$messages,
+        ]);
     }
+
 }

@@ -16,7 +16,7 @@ class UserManager extends AbstractManager
 
     public function getEmailByEmail(string $email)
     {
-        $sql = 'SELECT email FROM user WHERE email = :email';
+        $sql = 'SELECT * FROM user WHERE email = :email';
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':email', $email, \PDO::PARAM_STR);
         $statement->execute();

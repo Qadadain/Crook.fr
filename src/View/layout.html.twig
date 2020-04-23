@@ -30,10 +30,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="/">About Us</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,14 +44,23 @@
                     <a class="dropdown-item" href="#">JAVA</a>
                     <a class="dropdown-item" href="#">JavaScript</a>
                     <a class="dropdown-item" href="#">Python</a>
-                    <a class="dropdown-item" href="#">C#</a>
-                    <a class="dropdown-item" href="#">C++</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Other languages</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Login</a>
+                {% if session.pseudo %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Bonjour {{ session.pseudo }} !</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/logout">Déconnexion</a>
+            </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/signin">Connexion / S'enregistrer</a>
+                </li>
+            {% endif %}
             </li>
         </ul>
 

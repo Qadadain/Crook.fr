@@ -16,7 +16,7 @@ class UserController extends AbstractController
         return 'toto';
     }
 
-    public function register(array $post)
+    public function register()
     {
         $messages =[];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,6 +25,8 @@ class UserController extends AbstractController
         }
         return $this->twig->render('User/user.html.twig', [
             'errors'=>$messages,
+            'post'=>$_POST,
+
         ]);
     }
 

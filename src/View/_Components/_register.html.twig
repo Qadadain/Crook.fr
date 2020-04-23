@@ -4,27 +4,29 @@
         <p class="text-light">{{ error }}</p>
     {% endfor %}
 </div>
+{% elseif errors %}
+<div class="bg-success"><p class="text-light"> Vous êtes Inscris !</p></div>
 {% endif %}
 <form method="POST" action="/user/register">
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" class="form-control" id="email" aria-describedby="email"placeholder="SupremeLeader@clubinternet.net">
+        <input type="email" name="email" class="form-control" id="email" value="{{ post is defined ? post.email : '' }}" aria-describedby="email" placeholder="SupremeLeader@clubinternet.net" required>
     </div>
     <div class="form-group">
         <label for="emailRepeat">Confirmer votre email</label>
-        <input type="email" name="emailRepeat" class="form-control" id="emailRepeat" aria-describedby="emailRepeat">
+        <input type="email" name="emailRepeat" class="form-control" id="emailRepeat" aria-describedby="emailRepeat" required>
     </div>
     <div class="form-group">
         <label for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo" class="form-control" id="pseudo" aria-describedby="pseudo" placeholder="SupremeLeader">
+        <input type="text" name="pseudo" class="form-control" id="pseudo" value="{{ post is defined ? post.pseudo : '' }}" aria-describedby="pseudo" placeholder="SupremeLeader" required>
     </div>
     <div class="form-group">
         <label for="password">Mot de Passe</label>
-        <input type="password" name="password" class="form-control" id="password" >
+        <input type="password" name="password" class="form-control" id="password" value="{{ post is defined ? post.password : '' }}" required >
     </div>
     <div class="form-group">
         <label for="passwordRepeat">Confirmer votre mot de passe</label>
-        <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat">
+        <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat" required>
     </div>
 
     <button type="submit" class="btn btn-primary">Envoyer!</button>

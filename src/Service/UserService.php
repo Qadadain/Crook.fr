@@ -15,6 +15,9 @@ class UserService
         if (empty($post['email']) || strlen($post['email']) > 250) {
             $errors[] = 'Votre email doit faire entre 5 et 250 caractères';
         }
+        if (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'Votre email n\'est pas valide ! ';
+        }
         if (empty($post['emailRepeat'])) {
             $errors[] = 'La confirmation de l\'email est vide';
         }
@@ -41,8 +44,11 @@ class UserService
     {
         $userManager = new UserManager();
         $user = $userManager->getEmailbyEmail($post['email']);
-        var_dump($user);
+        if ($user === false){
+            $addUser = new UserManager();
+            $userManager = $addUser->addNewUser($post);
+            return $userManager;
+        }
     }
-    }
-
+}
 

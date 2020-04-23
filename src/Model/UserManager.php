@@ -31,16 +31,16 @@ class UserManager extends AbstractManager
                 VALUES (:pseudo,:email,:password,:role,:create_at)";
         $date = new DateTime();
         $statement = $this->pdo->prepare($sql);
-        $statement->bindValue(':pseudo', $user['pseudo'] ,\PDO::PARAM_STR);
-        $statement->bindValue(':email', $user['email'] ,\PDO::PARAM_STR);
-        $statement->bindValue(':password',password_hash($user['password'], PASSWORD_DEFAULT) ,\PDO::PARAM_STR);
-        $statement->bindValue(':role', 'ROLE_USER',\PDO::PARAM_STR);
-        $statement->bindValue(':create_at', $date,\PDO::PARAM_STR);
-        if ( $statement->execute()){
+        $statement->bindValue(':pseudo', $user['pseudo'], \PDO::PARAM_STR);
+        $statement->bindValue(':email', $user['email'], \PDO::PARAM_STR);
+        $statement->bindValue(':password', password_hash($user['password'], PASSWORD_DEFAULT), \PDO::PARAM_STR);
+        $statement->bindValue(':role', 'ROLE_USER', \PDO::PARAM_STR);
+        $statement->bindValue(':create_at', $date, \PDO::PARAM_STR);
+        if ($statement->execute()) {
             $isSignIn = true;
-        }else {
+        } else {
             $isSignIn = false;
         }
-       return $isSignIn;
+        return $isSignIn;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Service\UserService;
 
 class UserController extends AbstractController
@@ -10,12 +11,10 @@ class UserController extends AbstractController
         return $this->twig->render('User/user.html.twig', [
         ]);
     }
-
     public function login()
     {
         return 'toto';
     }
-
     public function register()
     {
         $messages =[];
@@ -26,8 +25,6 @@ class UserController extends AbstractController
         return $this->twig->render('User/user.html.twig', [
             'errors'=>$messages,
             'post'=>$_POST,
-
         ]);
     }
-
 }

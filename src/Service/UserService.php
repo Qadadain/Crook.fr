@@ -21,7 +21,7 @@ class UserService
         if (empty($post['emailRepeat'])) {
             $errors[] = 'La confirmation de l\'email est vide';
         }
-        if ($post['emailRepeat'] !== $post['email']  ) {
+        if ($post['emailRepeat'] !== $post['email']) {
             $errors[] = 'L\'email ne correspond pas';
         }
         if (empty($post['password']) || strlen($post['password']) < 8) {
@@ -30,12 +30,12 @@ class UserService
         if (empty($post['passwordRepeat'])) {
             $errors[] = 'La confirmation du mot de passe est vide';
         }
-        if ($post['passwordRepeat'] !== $post['password']  ) {
+        if ($post['passwordRepeat'] !== $post['password']) {
             $errors[] = 'Le mot de passe ne correspond pas';
         }
-        if (empty($errors)){
+        if (empty($errors)) {
             $validTest = $this->insertIntoUser($post);
-        }else {
+        } else {
             $validTest = $errors;
         }
         return $validTest;
@@ -44,11 +44,10 @@ class UserService
     {
         $userManager = new UserManager();
         $user = $userManager->getEmailbyEmail($post['email']);
-        if ($user === false){
+        if ($user === false) {
             $addUser = new UserManager();
             $userManager = $addUser->addNewUser($post);
             return $userManager;
         }
     }
 }
-

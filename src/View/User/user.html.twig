@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <section class="container-fluid my-5">
+        <div class="row">
+            <div class="col-sm-5 col-md-5 col-12 login-mobile">
+                    {%include '_Components/_register.html.twig'  %}
+            </div>
+            <div class="col-2 d-flex justify-content-center align-items-center">
+                <span class="register-border"></span>
+            </div>
+            <div class="col-sm-5 col-md-5 col-12 d-flex flex-column justify-content-center">
+                {%include '_Components/_login.html.twig'  %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

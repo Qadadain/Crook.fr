@@ -29,4 +29,14 @@ class LanguageManager extends AbstractManager
         $statement->execute();
         return $this->pdo->lastInsertId();
     }
+
+    public function getUserForAdmin(string $page = null): array
+    {
+        $sql = 'SELECT l.name, l.is_valid, l.create_at, l.update_at FROM language l ORDER BY l.id;';
+        if ($page === 'home') {
+            $sql .= ' DESC Limit 10';
+        }
+        $statement = $this->pdo->query($sql);
+        return $statement->fetchAll();
+    }
 }

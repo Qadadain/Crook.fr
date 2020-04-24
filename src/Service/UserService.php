@@ -6,13 +6,17 @@ use App\Model\UserManager;
 
 class UserService
 {
+    const PSEUDO_MAX_LENGHT = 50;
+    const EMAIL_MAX_LENGHT = 250;
+    const PASSWORD_MIN_LENGHT = 8;
+
     public function validateFormUser(array $post)
     {
         $errors = [];
-        if (empty($post['pseudo']) || strlen($post['pseudo']) > 50) {
+        if (empty($post['pseudo']) || strlen($post['pseudo']) > self::PSEUDO_MAX_LENGHT) {
             $errors[] = 'Votre pseudo doit faire entre 5 et 50 caractères';
         }
-        if (empty($post['email']) || strlen($post['email']) > 250) {
+        if (empty($post['email']) || strlen($post['email']) > self::EMAIL_MAX_LENGHT) {
             $errors[] = 'Votre email doit faire entre 5 et 250 caractères';
         }
         if (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
@@ -24,7 +28,7 @@ class UserService
         if ($post['emailRepeat'] !== $post['email']) {
             $errors[] = 'L\'email ne correspond pas';
         }
-        if (empty($post['password']) || strlen($post['password']) < 8) {
+        if (empty($post['password']) || strlen($post['password']) < self::PASSWORD_MIN_LENGHT) {
             $errors[] = 'Votre mot de passe doit faire minimum 8 caractères';
         }
         if (empty($post['passwordRepeat'])) {
@@ -43,10 +47,14 @@ class UserService
     public function insertIntoUser(array $post)
     {
         $userManager = new UserManager();
-        $user = $userManager->getEmailbyEmail($post['email']);
+        $user = $userManager->getUserbyEmail($post['email']);
         if ($user === false) {
             $addUser = new UserManager();
-            $userManager = $addUser->addNewUser($post);
+            try {
+                $userManager = $addUser->addNewUser($post);
+            } catch (\Exception $e) {
+                $userManager = $e;
+            }
             return $userManager;
         }
     }

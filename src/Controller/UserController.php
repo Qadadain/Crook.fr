@@ -17,7 +17,7 @@ class UserController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userManager = new UserManager();
-            $userData = $userManager->getEmailByEmail($_POST['email']);
+            $userData = $userManager->getUserByEmail($_POST['email']);
             if (!is_array($userData)) {
                 header('Location: /user/signin');
             }

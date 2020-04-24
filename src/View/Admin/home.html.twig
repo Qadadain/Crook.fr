@@ -1,0 +1,92 @@
+{% extends 'adminLayout.html.twig' %}
+{% block title %}Admin - page d'acceuil{% endblock %}
+{% block content %}
+    <section>
+        <h1>Récapitulatif des derniers sheets</h1>
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Créer le </th>
+                    <th scope="col">Mis à jour le</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Language</th>
+                    <th scope="col">Popularité</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for sheet in sheets %}
+                    <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                            <td>{{ sheet.title }}</td>
+                            <td>{{ sheet.created_at }}</td>
+                            <td>{{ sheet.updated_at }}</td>
+                            <td>{{ sheet.pseudo }}</td>
+                            <td>{{ sheet.name }}</td>
+                            <td>{{ sheet.popularity }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section>
+        <h1>Récapitulatif des derniers utilisateurs</h1>
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pseudo</th>
+                    <th scope="col">Email </th>
+                    <th scope="col">Créer le </th>
+                    <th scope="col">Modifier le</th>
+                    <th scope="col">Role</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                            <td>{{ user.pseudo }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.created_at }}</td>
+                            <td>{{ sheet.updated_at }}</td>
+                            <td>{{ sheet.role_user }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section><section>
+        <h1>Récapitulatif des derniers languages</h1>
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Créer le </th>
+                    <th scope="col">Mis à jour le</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Language</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for sheet in sheets %}
+                    <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                            <td>{{ sheet.title }}</td>
+                            <td>{{ sheet.created_at }}</td>
+                            <td>{{ sheet.updated_at }}</td>
+                            <td>{{ sheet.pseudo }}</td>
+                            <td>{{ sheet.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

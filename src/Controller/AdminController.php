@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\SheetManager;
 use App\Model\UserManager;
 use App\Model\LanguageManager;
+use App\Service\AdminService;
 
 class AdminController extends AbstractController
 {
@@ -12,18 +13,19 @@ class AdminController extends AbstractController
 
     public function home()
     {
-        $sheetManager = new SheetManager(self::PAGE);
-        $sheet =$sheetManager->getSheetForAdmin(self::PAGE);
+        $sheetManager = new SheetManager();
+        $sheets =$sheetManager->getSheetForAdmin(self::PAGE);
 
-        $userManager = new UserManager(self::PAGE);
-        $user = $userManager->getUserForAdmin();
+        $userManager = new UserManager();
+        $users = $userManager->getUserForAdmin(self::PAGE);
 
-        $languageManager = new LanguageManager(self::PAGE);
-        $language = $languageManager->getUserForAdmin();
+        $languageManager = new LanguageManager();
+        $languages = $languageManager->getUserForAdmin(self::PAGE);
+
         return $this->twig->render('Admin/home.html.twig', [
-            'sheet' => $sheet,
-            'user' => $user,
-            'language' => $language,
+            'sheets' => $sheets,
+            'users' => $users,
+            'languages' => $languages,
         ]);
     }
 }

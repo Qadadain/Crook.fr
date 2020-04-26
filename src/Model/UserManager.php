@@ -43,4 +43,16 @@ class UserManager extends AbstractManager
         }
         return $isSignIn;
     }
+
+    public function getUserForAdmin(string $page = null): array
+    {
+        $sql = 'SELECT u.id, u.pseudo, u.email, u.create_at, u.update_at, u.role_user 
+            FROM user u 
+            ORDER BY u.id;';
+        if ($page === 'home') {
+            $sql .= ' DESC Limit 10';
+        }
+        $statement = $this->pdo->query($sql);
+        return $statement->fetchAll();
+    }
 }

@@ -9,31 +9,25 @@ class UserController extends AbstractController
 {
     public function signIn()
     {
-        return $this->twig->render('user/user.html.twig', [
+        return $this->twig->render('User/user.html.twig', [
         ]);
     }
+
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userManager = new UserManager();
-
             $userData = $userManager->getEmailByEmail($_POST['email']);
-
             if (!is_array($userData)) {
-
                 header('Location: /user/signin');
-                exit;
             }
-
             if (password_verify($_POST['password'], $userData['password'])) {
-
                 $_SESSION['email'] = $userData['email'];
                 $_SESSION['pseudo'] = $userData['pseudo'];
                 $_SESSION['role_user'] = $userData['role_user'];
                 header('Location: /');
             } else {
                 header('Location: /user/signin');
-                exit;
             }
         }
     }
@@ -43,6 +37,7 @@ class UserController extends AbstractController
         session_destroy();
         header("Location: /");
     }
+
     public function register()
     {
         $messages =[];

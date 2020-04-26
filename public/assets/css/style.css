@@ -15,7 +15,7 @@
 @font-face {
     font-family: "Russo One";
     font-style: normal;
-    font-width: normal;
+    font-weight: normal;
     src: local('Russo One'),
     url("../fonts/RussoOne-Regular.ttf") format('truetype');
 }
@@ -64,7 +64,6 @@ h3 {
 /*
     Foooter
  */
-
 .footer {
     padding-top: 3px;
     width: 100%;
@@ -77,7 +76,52 @@ h3 {
 h6 {
     color: aliceblue;
 }
-@media (min-width: 576px) {
+
+/*
+    login
+ */
+.register-border {
+    display: block;
+    width: 1px;
+    height: 90%;
+    border-right: grey 1px solid;
+}
+@media (max-width: 576px) {
+
+    /*
+        Navbar
+     */
+
+
+
+    /*
+        Card
+     */
+
+
+
+    /*
+        Carousel
+     */
+
+
+
+    /*
+        Form
+     */
+
+    /*
+        Login
+     */
+    .register-border {
+        display: none;
+    }
+    .login-mobile {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px) {
 
     /*
         Navbar
@@ -103,7 +147,7 @@ h6 {
 
 }
 
-@media (min-width: 768px) {
+@media (max-width: 992px) {
 
     /*
         Navbar
@@ -129,33 +173,7 @@ h6 {
 
 }
 
-@media (min-width: 992px) {
-
-    /*
-        Navbar
-     */
-
-
-
-    /*
-        Card
-     */
-
-
-
-    /*
-        Carousel
-     */
-
-
-
-    /*
-        Form
-     */
-
-}
-
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
 
     /*
         Navbar

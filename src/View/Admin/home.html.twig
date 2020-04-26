@@ -14,6 +14,7 @@
                     <th scope="col">Auteur</th>
                     <th scope="col">Language</th>
                     <th scope="col">Popularité</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,15 @@
                             <td>{{ sheet.pseudo }}</td>
                             <td>{{ sheet.name }}</td>
                             <td>{{ sheet.popularity }}</td>
+                            <td>
+                                <a href="sheet/{{ sheet.id }}">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                /
+                                <a href="deleteSheet/{{ sheet.id }}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -44,17 +54,27 @@
                     <th scope="col">Créer le </th>
                     <th scope="col">Modifier le</th>
                     <th scope="col">Role</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                     {% for user in users %}
                     <tr>
                     <th scope="row">{{ loop.index }}</th>
-                            <td>{{ user.pseudo }}</td>
-                            <td>{{ user.email }}</td>
-                            <td>{{ user.created_at }}</td>
-                            <td>{{ sheet.updated_at }}</td>
-                            <td>{{ sheet.role_user }}</td>
+                        <td>{{ user.pseudo }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.create_at }}</td>
+                        <td>{{ user.update_at }}</td>
+                        <td>{{ user.role_user == 'ROLE_USER' ? 'Membre' : 'Administrateur' }}</td>
+                        <td>
+                            <a href="user/{{ user.id }}">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            /
+                            <a href="deleteUser/{{ user.id }}">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -67,22 +87,28 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Titre</th>
-                    <th scope="col">Créer le </th>
-                    <th scope="col">Mis à jour le</th>
-                    <th scope="col">Auteur</th>
-                    <th scope="col">Language</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Si valide</th>
+                    <th scope="col">Créer le</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                    {% for sheet in sheets %}
+                    {% for language in languages %}
                     <tr>
                     <th scope="row">{{ loop.index }}</th>
-                            <td>{{ sheet.title }}</td>
-                            <td>{{ sheet.created_at }}</td>
-                            <td>{{ sheet.updated_at }}</td>
-                            <td>{{ sheet.pseudo }}</td>
-                            <td>{{ sheet.name }}</td>
+                        <td>{{ language.name }}</td>
+                        <td>{{ language.is_valid == 1 ? 'Certifier' : 'Pas certfier' }}</td>
+                        <td>{{ language.create_at }}</td>
+                        <td>
+                            <a href="language/{{ language.id }}">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            /
+                            <a href="deleteLanguage/{{ language.id }}">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

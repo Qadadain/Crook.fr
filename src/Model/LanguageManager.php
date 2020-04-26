@@ -30,9 +30,9 @@ class LanguageManager extends AbstractManager
         return $this->pdo->lastInsertId();
     }
 
-    public function getUserForAdmin(string $page = null): array
+    public function getLanguageForAdmin(string $page = null): array
     {
-        $sql = 'SELECT l.name, l.is_valid, l.create_at, l.update_at FROM language l ORDER BY l.id;';
+        $sql = 'SELECT l.id, l.name, l.is_valid, l.create_at, l.update_at FROM language l ORDER BY l.id;';
         if ($page === 'home') {
             $sql .= ' DESC Limit 10';
         }

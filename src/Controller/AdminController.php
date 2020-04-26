@@ -14,13 +14,13 @@ class AdminController extends AbstractController
     public function home()
     {
         $sheetManager = new SheetManager();
-        $sheets =$sheetManager->getSheetForAdmin(self::PAGE);
+        $sheets = $sheetManager->getSheetForAdmin(self::PAGE);
 
         $userManager = new UserManager();
         $users = $userManager->getUserForAdmin(self::PAGE);
 
         $languageManager = new LanguageManager();
-        $languages = $languageManager->getUserForAdmin(self::PAGE);
+        $languages = $languageManager->getLanguageForAdmin(self::PAGE);
 
         return $this->twig->render('Admin/home.html.twig', [
             'sheets' => $sheets,

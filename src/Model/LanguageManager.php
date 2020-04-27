@@ -32,11 +32,20 @@ class LanguageManager extends AbstractManager
 
     public function getLanguageForAdmin(string $page = null): array
     {
-        $sql = 'SELECT l.id, l.name, l.is_valid, l.create_at, l.update_at FROM language l ORDER BY l.id;';
+        $sql = 'SELECT * FROM language l ORDER BY l.id';
         if ($page === 'home') {
-            $sql .= ' DESC Limit 10';
+            $sql .= ' DESC LIMIT 10';
         }
         $statement = $this->pdo->query($sql);
+        return $statement->fetchAll();
+    }
+
+    public function ajaxLanguage(string $limit): array
+    {
+        $maxLimit = $limit + $limit;
+        $sql = 'SELECT * FROM language l ORDER BY l.id LIMIT ' . $limit . ', ' . $maxLimit;
+        $statement = $this->pdo->query($sql);
+
         return $statement->fetchAll();
     }
 }

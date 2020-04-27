@@ -28,4 +28,26 @@ class AdminController extends AbstractController
             'languages' => $languages,
         ]);
     }
+
+    public function allLanguage()
+    {
+        $languageManager = new LanguageManager();
+        $language = $languageManager->getLanguageForAdmin(self::PAGE);
+        $limit = '10';
+        return $this->twig->render('Admin/language.html.twig', [
+            'languages' => $language,
+            'limit' => $limit,
+        ]);
+    }
+
+    public function changeLanguage($limit)
+    {
+        $languageManager = new LanguageManager();
+        $language = $languageManager->ajaxLanguage($limit);
+        $limit = $limit + $limit;
+        return $this->twig->render('Admin/ajax/ajaxLanguage.html.twig', [
+            'languages' => $language,
+            'limit' => $limit,
+        ]);
+    }
 }

@@ -24,7 +24,10 @@ class SheetManager extends AbstractManager
         $statement->bindValue(':popularity', 0);
         $statement->bindValue(':user_id', 1); // TODO Need modify when login are avaible
         $statement->bindValue(':language_id', $language ? $language : $post['language']);
-        if ($statement->execute()) {
+
+        if ($statement->execute());
+
+        {
             $return = 'Votre sheet est bien enregistrée';
         }
         return $return;
@@ -39,6 +42,19 @@ class SheetManager extends AbstractManager
             ORDER BY s.id';
         if ($page === 'home') {
             $sql .= ' DESC Limit 10';
+        }
+        $statement = $this->pdo->query($sql);
+        return $statement->fetchAll();
+    }
+
+    public function getAllSheetForAdmin(string $sheet = null): array
+    {
+        $sql = 'SELECT s.id, s.title, s.created_at, s.popularity, s.updated_at, u.pseudo, l.name
+            FROM sheet s 
+            JOIN user u ON s.user_id = u.id
+            JOIN language l ON s.language_id = l.id
+            ORDER BY s.id';
+        if ($sheet === 'allsheet') {
         }
         $statement = $this->pdo->query($sql);
         return $statement->fetchAll();

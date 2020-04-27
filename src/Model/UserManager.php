@@ -2,7 +2,8 @@
 
 namespace App\Model;
 
-use Nette\Utils\DateTime;
+use \Exception;
+use \DateTime;
 
 class UserManager extends AbstractManager
 {
@@ -16,7 +17,7 @@ class UserManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function getEmailByEmail(string $email)
+    public function getUserByEmail(string $email)
     {
         $sql = 'SELECT * FROM user WHERE email = :email';
         $statement = $this->pdo->prepare($sql);
@@ -25,6 +26,7 @@ class UserManager extends AbstractManager
 
         return $statement->fetch();
     }
+
     public function addNewUser(array $user)
     {
         $sql = "INSERT INTO " . self::TABLE . " (`pseudo`,`email`,`password`,`role_user`,`create_at`)
@@ -37,9 +39,9 @@ class UserManager extends AbstractManager
         $statement->bindValue(':role', 'ROLE_USER', \PDO::PARAM_STR);
         $statement->bindValue(':create_at', $date, \PDO::PARAM_STR);
         if ($statement->execute()) {
-            $isSignIn = true;
+            $isSignIn = $this->pdo->lastInsertId();
         } else {
-            $isSignIn = false;
+            throw new Exception('Erreur pendant l\'ajout d\'un nouveau utilisateur');
         }
         return $isSignIn;
     }

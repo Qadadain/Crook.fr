@@ -24,7 +24,10 @@ class SheetManager extends AbstractManager
         $statement->bindValue(':popularity', 0);
         $statement->bindValue(':user_id', 1); // TODO Need modify when login are avaible
         $statement->bindValue(':language_id', $language ? $language : $post['language']);
-        if ($statement->execute()){
+
+        if ($statement->execute());
+
+        {
             $return = 'Votre sheet est bien enregistrée';
         }
         return $return;
@@ -56,5 +59,4 @@ class SheetManager extends AbstractManager
         $statement = $this->pdo->query($sql);
         return $statement->fetchAll();
     }
-
 }

@@ -40,7 +40,7 @@ class LanguageManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function ajaxLanguage(string $limit): array
+    public function ajaxLanguage(int $limit): array
     {
         $maxLimit = $limit + $limit;
         $sql = 'SELECT * FROM language l ORDER BY l.id LIMIT ' . $limit . ', ' . $maxLimit;

@@ -12,7 +12,7 @@
                 <th scope="col">Actions</th>
             </tr>
             </thead>
-            <tbody id="test">
+            <tbody id="languageTable">
             {% for language in languages %}
                 <tr>
                     <th scope="row">{{ loop.index }}</th>
@@ -32,8 +32,14 @@
             {% endfor %}
             </tbody>
         </table>
-        <div>
-            <button id="next" value="{{ limit }}">Page suivante</button>
+        <div class="row">
+            <div class="col-6 text-left">
+                <button class="btn btn-secondary" id="previous" value="{{ limit - 10 }}" style="display: none">Page précédente</button>
+            </div>
+            <div class="col-6 text-right">
+                <button class="btn btn-primary" id="next" value="{{ limit }}">Page suivante</button>
+            </div>
         </div>
     </div>
 {% endblock %}
+{% block javascript %}<script src="/assets/js/ajaxLanguage.js"></script>{% endblock %}

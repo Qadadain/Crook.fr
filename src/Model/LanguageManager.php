@@ -5,6 +5,7 @@ namespace App\Model;
 class LanguageManager extends AbstractManager
 {
     const TABLE = 'language';
+    const MAXLIMIT = 10;
 
     public function __construct()
     {
@@ -42,7 +43,7 @@ class LanguageManager extends AbstractManager
 
     public function ajaxLanguage(int $limit): array
     {
-        $maxLimit = $limit + $limit;
+        $maxLimit = $limit + self::MAXLIMIT;
         $sql = 'SELECT * FROM language l ORDER BY l.id LIMIT ' . $limit . ', ' . $maxLimit;
         $statement = $this->pdo->query($sql);
 

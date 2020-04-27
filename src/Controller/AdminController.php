@@ -44,10 +44,10 @@ class AdminController extends AbstractController
     {
         $languageManager = new LanguageManager();
         $language = $languageManager->ajaxLanguage($limit);
-        $limit = $limit + $limit;
+        $count = count($language);
         return $this->twig->render('Admin/ajax/ajaxLanguage.html.twig', [
             'languages' => $language,
-            'limit' => $limit,
+            'lengthTable' => $count,
         ]);
     }
 }

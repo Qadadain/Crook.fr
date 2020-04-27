@@ -28,4 +28,14 @@ class AdminController extends AbstractController
             'languages' => $languages,
         ]);
     }
+
+    public function allsheet()
+    {
+        $sheetManager = new SheetManager();
+        $sheets = $sheetManager->getAllSheetForAdmin(self::PAGE);
+
+        return $this->twig->render('Admin/allsheet.html.twig', [
+            'sheets' => $sheets,
+        ]);
+    }
 }

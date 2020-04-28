@@ -17,7 +17,7 @@
                 <th scope="col">Actions</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="sheetTable">
             {% for sheet in sheets %}
                 <tr>
                     <th scope="row">{{ loop.index }}</th>
@@ -40,6 +40,15 @@
             {% endfor %}
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-6 text-left">
+                <button class="btn btn-secondary" id="previous" value="{{ limit - 10 }}" style="display: none">Page précédente</button>
+            </div>
+            <div class="col-6 text-right">
+                <button class="btn btn-primary" id="next" value="{{ limit }}">Page suivante</button>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
+{% block javascript %}<script src="/assets/js/ajaxSheet.js"></script>{% endblock %}

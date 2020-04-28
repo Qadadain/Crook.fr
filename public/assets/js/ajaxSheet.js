@@ -6,11 +6,11 @@ $(() => {
         let limit = $("#next").val();
         $.ajax({
             type: 'GET',
-            url: "changeLanguage/" + limit,
+            url: "changeSheet/" + limit,
             timeout: 3000,
             dataType: 'html',
             success: (data) => {
-                $("#languageTable").html(data);
+                $("#sheetTable").html(data);
                 limit = Number(limit) + incrementLimit;
                 $("#next").val(limit);
                 if ($('#lengthTable').val() !== 10) {
@@ -31,11 +31,11 @@ $(() => {
         let nextValue = $("#next").val();
         $.ajax({
             type: 'GET',
-            url: "changeLanguage/" + limit,
+            url: "changeSheet/" + limit,
             timeout: 3000,
             dataType: 'html',
-            success: (data) => {
-                $("#languageTable").html(data);
+            success: (data) => {;
+                $("#sheetTable").html(data);
                 limit = Number(limit) - incrementLimit;
                 if ($('#previous').val() - incrementLimit < 0) {
                     $("#previous").val(0);

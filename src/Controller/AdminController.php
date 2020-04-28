@@ -73,4 +73,37 @@ class AdminController extends AbstractController
             'lengthTable' => $count,
         ]);
     }
+
+    public function allUser()
+    {
+        $userManager = new UserManager();
+        $users = $userManager->getUserForAdmin(self::PAGE);
+        $limit = self::LIMIT;
+        return $this->twig->render('Admin/allUser.html.twig', [
+            'users' => $users,
+            'limit' => $limit,
+        ]);
+    }
+
+    public function editUser()
+    {
+        $userManager = new UserManager();
+        $users = $userManager->getUserForAdmin(self::PAGE);
+        return $this->twig->render('Admin/editUser.html.twig', [
+            'users' => $users,
+        ]);
+    }
+
+    public function changeUser($limit)
+    {
+        $userManager = new UserManager();
+        $users = $userManager->ajaxUser($limit);
+        $count = count($users);
+        
+        return $this->twig->render('Admin/ajax/ajaxUser.html.twig', [
+            'users' => $users,
+            'lengthTable' => $count,
+        ]);
+    }
+
 }

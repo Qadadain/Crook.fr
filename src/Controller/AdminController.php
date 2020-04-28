@@ -60,4 +60,15 @@ class AdminController extends AbstractController
             'sheets' => $sheets,
         ]);
     }
+
+    public function changeSheet($limit)
+    {
+        $sheetManager = new SheetManager();
+        $sheet = $sheetManager->ajaxSheet($limit);
+        $count = count($sheet);
+        return $this->twig->render('Admin/ajax/ajaxSheet.html.twig', [
+            'sheets' => $sheet,
+            'lengthTable' => $count,
+        ]);
+    }
 }

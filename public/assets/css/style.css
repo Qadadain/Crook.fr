@@ -96,6 +96,15 @@ h6 {
     height: 90%;
     border-right: grey 1px solid;
 }
+.image-language {
+width: 400px;
+    height: 300px;
+    padding: 50px;
+}
+.fleximage {
+    display: flex;
+    text-align: center;
+}
 @media (max-width: 576px) {
 
     /*

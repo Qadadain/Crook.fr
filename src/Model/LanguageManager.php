@@ -41,12 +41,17 @@ class LanguageManager extends AbstractManager
         return $statement->fetchAll();
     }
 
+
+    public function getImagebyLanguage(): array
+    {
+        $statement = $this->pdo->query('SELECT name, image, color, id FROM language');
+    }
+ 
     public function ajaxLanguage(int $limit): array
     {
         $maxLimit = $limit + self::MAXLIMIT;
         $sql = 'SELECT * FROM language l ORDER BY l.id LIMIT ' . $limit . ', ' . $maxLimit;
         $statement = $this->pdo->query($sql);
-
         return $statement->fetchAll();
     }
 }

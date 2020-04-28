@@ -60,4 +60,14 @@ class AdminController extends AbstractController
             'sheets' => $sheets,
         ]);
     }
+
+    public function editLanguage(int $id)
+    {
+        $languageManager = new LanguageManager();
+        $language = $languageManager->selectOneById($id);
+
+        return $this->twig->render('Admin/editLanguage.html.twig', [
+            'language' => $language,
+        ]);
+    }
 }

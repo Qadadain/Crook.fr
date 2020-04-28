@@ -1,0 +1,26 @@
+{% extends 'adminLayout.html.twig' %}
+{% block content %}
+<section class="d-flex align-items-center">
+    <div class="container bg-dark p-5">
+        <h2 class="text-light">Editer le language n°{{ language.id }}</h2>
+        <form action="" method="post">
+            <div class="form-group">
+                <label class="text-light" for="name">Nom</label>
+                <input class="form-control" type="text" name="name" value="{{ language.name }}">
+            </div>
+            <div class="form-group">
+                <label class="text-light" for="color">Couleur</label>
+                <input class="form-control" type="color" name="color" value="{{ language.color }}">
+            </div>
+            <div class="form-group">
+                <label class="text-light" for="image">Logo</label>
+                <input class="form-control" type="text" name="image" value="{{ language.image }}">
+            </div>
+            <input type="hidden" name="id" value="{{ language.id }}">
+            <div class="text-center">
+                <button class="btn btn-secondary">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

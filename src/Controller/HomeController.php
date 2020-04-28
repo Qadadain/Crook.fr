@@ -28,4 +28,8 @@ class HomeController extends AbstractController
             'sheets'=>$sheets,
         ]);
     }
+    public function about()
+    {
+        return $this->twig->render('Home/about.html.twig');
+    }
 }

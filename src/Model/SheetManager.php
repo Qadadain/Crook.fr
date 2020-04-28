@@ -5,6 +5,7 @@ namespace App\Model;
 class SheetManager extends AbstractManager
 {
     const TABLE = 'sheet';
+    const MAXLIMIT = 10;
 
     public function __construct()
     {
@@ -53,10 +54,19 @@ class SheetManager extends AbstractManager
             FROM sheet s 
             JOIN user u ON s.user_id = u.id
             JOIN language l ON s.language_id = l.id
-            ORDER BY s.id';
-        if ($sheet === 'allsheet') {
-        }
+            ORDER BY s.id
+            LIMIT 10';
+
         $statement = $this->pdo->query($sql);
+        return $statement->fetchAll();
+    }
+
+    public function ajaxSheet(int $limit): array
+    {
+        $maxLimit = $limit + self::MAXLIMIT;
+        $sql = 'SELECT * FROM sheet s ORDER BY s.id LIMIT ' . $limit . ', ' . $maxLimit;
+        $statement = $this->pdo->query($sql);
+
         return $statement->fetchAll();
     }
 }

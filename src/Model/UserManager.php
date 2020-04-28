@@ -8,6 +8,7 @@ use \DateTime;
 class UserManager extends AbstractManager
 {
     const TABLE = 'user';
+    const MAXLIMIT = 10;
 
     /**
      *  Initializes this class.
@@ -55,6 +56,15 @@ class UserManager extends AbstractManager
             $sql .= ' DESC Limit 10';
         }
         $statement = $this->pdo->query($sql);
+        return $statement->fetchAll();
+    }
+
+    public function ajaxUser(int $limit): array
+    {
+        $maxLimit = $limit + self::MAXLIMIT;
+        $sql = 'SELECT u.id, u.pseudo, u.email, u.create_at, u.update_at, u.role_user  FROM user u ORDER BY u.id LIMIT ' . $limit . ', ' . $maxLimit;
+        $statement = $this->pdo->query($sql);
+
         return $statement->fetchAll();
     }
 }

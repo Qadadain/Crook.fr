@@ -17,7 +17,8 @@
                 <th scope="col">Actions</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="userTable">
+
             {% for user in users %}
                 <tr>
                     <th scope="row">{{ loop.index }}</th>
@@ -37,7 +38,20 @@
                     </td>
                 </tr>
             {% endfor %}
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-6 text-left">
+                <button class="btn btn-secondary" id="previous" value="{{ limit - 10 }}" style="display: none">Page précédente</button>
+            </div>
+            <div class="col-6 text-right">
+                <button class="btn btn-primary" id="next" value="{{ limit }}">Page suivante</button>
+            </div>
+        </div>
+    </div>
 </section>
 
+
+
 {% endblock %}
-{% block javascript %}<script src="/assets/js/ajaxLanguage.js"></script>{% endblock %}
+{% block javascript %}<script src="/assets/js/ajaxUser.js"></script>{% endblock %}

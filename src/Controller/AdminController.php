@@ -60,4 +60,22 @@ class AdminController extends AbstractController
             'sheets' => $sheets,
         ]);
     }
+
+    public function allUser()
+    {
+        $userManager = new UserManager();
+        $users = $userManager->getUserForAdmin(self::PAGE);
+        return $this->twig->render('Admin/allUser.html.twig', [
+            'users' => $users,
+        ]);
+    }
+
+    public function editUser()
+    {
+        $userManager = new UserManager();
+        $users = $userManager->getUserForAdmin(self::PAGE);
+        return $this->twig->render('Admin/editUser.html.twig', [
+            'users' => $users,
+        ]);
+    }
 }

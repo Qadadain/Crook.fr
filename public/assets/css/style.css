@@ -47,6 +47,16 @@ h3 {
 
 
 /*
+    About Us
+ */
+.row about-container{
+    justify-content: flex-start;
+}
+.crook-logo{
+    align-items: self-end;
+}
+
+/*
     Carousel
  */
 
@@ -96,6 +106,11 @@ h6 {
 
     /*
         Card
+     */
+
+
+    /*
+    About Us
      */
 
 

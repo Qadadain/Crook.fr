@@ -39,4 +39,11 @@ class LanguageManager extends AbstractManager
         $statement = $this->pdo->query($sql);
         return $statement->fetchAll();
     }
+
+    public function getImagebyLanguage(): array
+    {
+        $statement = $this->pdo->query('SELECT name, image, color, id FROM language');
+        return $statement->fetchAll();
+    }
+
 }

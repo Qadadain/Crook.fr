@@ -4,7 +4,6 @@ $(() => {
     $('#next').on('click', (e) => {
         e.preventDefault();
         let limit = $("#next").val();
-        console.log(limit);
         $.ajax({
             type: 'GET',
             url: "changeSheet/" + limit,
@@ -35,8 +34,7 @@ $(() => {
             url: "changeSheet/" + limit,
             timeout: 3000,
             dataType: 'html',
-            success: (data) => {
-                console.log(data);
+            success: (data) => {;
                 $("#sheetTable").html(data);
                 limit = Number(limit) - incrementLimit;
                 if ($('#previous').val() - incrementLimit < 0) {

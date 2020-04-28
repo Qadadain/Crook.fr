@@ -35,7 +35,6 @@ $(() => {
             timeout: 3000,
             dataType: 'html',
             success: (data) => {
-                console.log(data);
                 $("#languageTable").html(data);
                 limit = Number(limit) - incrementLimit;
                 if ($('#previous').val() - incrementLimit < 0) {

@@ -10,6 +10,6 @@ class LanguageController extends AbstractController
         $languageManager = new LanguageManager();
         $languages = $languageManager->getImagebyLanguage();
 
-        return $this->twig->render('Languages/languages.html.twig' , ['languages' => $languages]);
+        return $this->twig->render('Languages/languages.html.twig', ['languages' => $languages]);
     }
 }

@@ -39,7 +39,7 @@ class LanguageManager extends AbstractManager
         $statement->bindValue(':name', $post['name']);
         $statement->bindValue(':color', $post['color']);
         $statement->bindValue(':image', $post['image']);
-        $statement->bindValue(':is_valid', $post['isValid']) == '1' ? true : false;
+        $statement->bindValue(':is_valid', $post['isValid'] == '1' ? true : false);
         $statement->bindValue(':id', $post['id']);
         $statement->execute();
     }
@@ -54,12 +54,6 @@ class LanguageManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-
-    public function getImagebyLanguage(): array
-    {
-        $statement = $this->pdo->query('SELECT name, image, color, id FROM language');
-    }
- 
     public function ajaxLanguage(int $limit): array
     {
         $maxLimit = $limit + self::MAXLIMIT;

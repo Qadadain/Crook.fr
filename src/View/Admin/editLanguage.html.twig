@@ -1,0 +1,47 @@
+{% extends 'adminLayout.html.twig' %}
+{% block content %}
+<section class="d-flex align-items-center">
+    <div class="container bg-dark p-5">
+        <h2 class="text-light">Editer le language n°{{ language.id }}</h2>
+        {% for error in errors %}
+            <p class="bg-danger">{{ error }}</p>
+        {% endfor %}
+        <form action="" method="post">
+            <div class="form-group">
+                <label class="text-light" for="name">Nom</label>
+                <input class="form-control" type="text" name="name" value="{{ language.name }}">
+            </div>
+            <div class="form-group">
+                <label class="text-light" for="color">Couleur</label>
+                <input class="form-control" type="color" name="color" value="{{ language.color }}">
+            </div>
+            <div class="form-group">
+                <label class="text-light" for="image">Logo</label>
+                <input class="form-control" type="text" name="image" value="{{ language.image }}">
+                <a class="btn btn-primary mt-2" data-toggle="collapse" href="#collapsePicture" role="button" aria-expanded="false" aria-controls="collapsePicture">
+                    Voir l'image
+                </a>
+                <div class="collapse" id="collapsePicture">
+                    <div class="card card-body">
+                        <div class="text-center">
+                            <img src="{{ language.image }}" alt="{{ language.name }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="text-light" for="isValid">Certifié</label>
+                <select class="form-control" name="isValid" id="isValid">
+                    <option>Choisire une options</option>
+                    <option value="1" {{ language.is_valid == '1' ? 'selected' : '' }}>Certifier</option>
+                    <option value="0" {{ language.is_valid == '0' ? 'selected' : '' }}>Non Certifier</option>
+                </select>
+            </div>
+            <input type="hidden" name="id" value="{{ language.id }}">
+            <div class="text-center">
+                <button class="btn btn-secondary">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

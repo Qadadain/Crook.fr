@@ -85,6 +85,24 @@ class AdminController extends AbstractController
         ]);
     }
 
+    public function editLanguage(int $id)
+    {
+        $errors = [];
+        if (!empty($_POST)) {
+            $adminService = new AdminService();
+            $errors = $adminService->languageForm($_POST);
+            if (empty($errors)) {
+                $adminService->editLanguage($_POST);
+            }
+        }
+        $languageManager = new LanguageManager();
+        $language = $languageManager->selectOneById($id);
+        return $this->twig->render('Admin/editLanguage.html.twig', [
+            'language' => $language,
+            'errors' => $errors,
+        ]);
+    }
+
     public function editUser()
     {
         $userManager = new UserManager();
@@ -105,5 +123,4 @@ class AdminController extends AbstractController
             'lengthTable' => $count,
         ]);
     }
-
 }

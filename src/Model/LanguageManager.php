@@ -31,6 +31,19 @@ class LanguageManager extends AbstractManager
         return $this->pdo->lastInsertId();
     }
 
+    public function editLanguage(array $post): void
+    {
+        $sql = 'UPDATE '. self::TABLE .' 
+            SET name = :name, color = :color, image = :image, update_at = NOW(), is_valid = :is_valid WHERE id = :id';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':name', $post['name']);
+        $statement->bindValue(':color', $post['color']);
+        $statement->bindValue(':image', $post['image']);
+        $statement->bindValue(':is_valid', $post['isValid']) == '1' ? true : false;
+        $statement->bindValue(':id', $post['id']);
+        $statement->execute();
+    }
+
     public function getLanguageForAdmin(string $page = null): array
     {
         $sql = 'SELECT * FROM language l ORDER BY l.id';

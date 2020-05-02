@@ -10,6 +10,7 @@ use App\Service\AdminService;
 class AdminController extends AbstractController
 {
     const PAGE = 'home';
+    const LIMIT = 10;
 
     public function home()
     {
@@ -33,7 +34,7 @@ class AdminController extends AbstractController
     {
         $languageManager = new LanguageManager();
         $language = $languageManager->getLanguageForAdmin(self::PAGE);
-        $limit = '10';
+        $limit = self::LIMIT;
         return $this->twig->render('Admin/language.html.twig', [
             'languages' => $language,
             'limit' => $limit,
@@ -55,9 +56,32 @@ class AdminController extends AbstractController
     {
         $sheetManager = new SheetManager();
         $sheets = $sheetManager->getAllSheetForAdmin(self::PAGE);
-
+        $limit = self::LIMIT;
         return $this->twig->render('Admin/allsheet.html.twig', [
             'sheets' => $sheets,
+            'limit' => $limit,
+        ]);
+    }
+
+    public function changeSheet($limit)
+    {
+        $sheetManager = new SheetManager();
+        $sheet = $sheetManager->ajaxSheet($limit);
+        $count = count($sheet);
+        return $this->twig->render('Admin/ajax/ajaxSheet.html.twig', [
+            'sheets' => $sheet,
+            'lengthTable' => $count,
+        ]);
+    }
+
+    public function allUser()
+    {
+        $userManager = new UserManager();
+        $users = $userManager->getUserForAdmin(self::PAGE);
+        $limit = self::LIMIT;
+        return $this->twig->render('Admin/allUser.html.twig', [
+            'users' => $users,
+            'limit' => $limit,
         ]);
     }
 
@@ -76,6 +100,27 @@ class AdminController extends AbstractController
         return $this->twig->render('Admin/editLanguage.html.twig', [
             'language' => $language,
             'errors' => $errors,
+        ]);
+    }
+
+    public function editUser()
+    {
+        $userManager = new UserManager();
+        $users = $userManager->getUserForAdmin(self::PAGE);
+        return $this->twig->render('Admin/editUser.html.twig', [
+            'users' => $users,
+        ]);
+    }
+
+    public function changeUser($limit)
+    {
+        $userManager = new UserManager();
+        $users = $userManager->ajaxUser($limit);
+        $count = count($users);
+        
+        return $this->twig->render('Admin/ajax/ajaxUser.html.twig', [
+            'users' => $users,
+            'lengthTable' => $count,
         ]);
     }
 }

@@ -12,7 +12,7 @@ class LanguageManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function getAllByName(): array
+    public function getLanguageName(): array
     {
         $statement = $this->pdo->query('SELECT name, id FROM language');
         return $statement->fetchAll();
@@ -42,22 +42,6 @@ class LanguageManager extends AbstractManager
         $statement->bindValue(':is_valid', $post['isValid']) == '1' ? true : false;
         $statement->bindValue(':id', $post['id']);
         $statement->execute();
-    }
-
-    public function getLanguageForAdmin(string $page = null): array
-    {
-        $sql = 'SELECT * FROM language l ORDER BY l.id';
-        if ($page === 'home') {
-            $sql .= ' DESC LIMIT 10';
-        }
-        $statement = $this->pdo->query($sql);
-        return $statement->fetchAll();
-    }
-
-
-    public function getImagebyLanguage(): array
-    {
-        $statement = $this->pdo->query('SELECT name, image, color, id FROM language');
     }
  
     public function ajaxLanguage(int $limit): array

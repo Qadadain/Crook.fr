@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Model\CardManager;
+use App\Model\SheetManager;
 
 class HomeController extends AbstractController
 {
@@ -32,4 +33,17 @@ class HomeController extends AbstractController
     {
         return $this->twig->render('Home/about.html.twig');
     }
+    public function search()
+    {
+
+        $sheetManager = new SheetManager();
+        $sheets = $sheetManager->getSheetByTitle($_GET['search']);
+
+        return $this->twig->render('Home/search.html.twig', [
+            'sheets'=>$sheets,
+        ]);
+
+    }
+
+
 }

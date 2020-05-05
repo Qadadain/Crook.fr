@@ -18,6 +18,7 @@ for (let i = 0; i < trashSheet.length; i++) {
                     let divSuccess = $('#success-delete');
                     divSuccess.addClass('alert alert-success');
                     divSuccess.html(data);
+                    trashSheet[i].parentElement.parentElement.remove();
                 }, error: (error) => {
                     let divError = $('#success-delete');
                     divError.addClass('alert alert-warning');

@@ -51,4 +51,17 @@ class LanguageManager extends AbstractManager
         $statement = $this->pdo->query($sql);
         return $statement->fetchAll();
     }
+    public function getSheetByLanguage(int $id): array
+    {
+        $sql = 'SELECT s.id, s.title, s.description, s.content, s.created_at, u.pseudo, l.name, l.image
+            FROM sheet s 
+            JOIN user u ON s.user_id = u.id
+            JOIN language l ON s.language_id = l.id
+            WHERE l.id = :id;';
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }

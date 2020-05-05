@@ -4,7 +4,7 @@
     {% for language in languages %}
                 <div class="image-language">
                     <figure class="figure">
-                    <a href="languages.html.twig?{{ language.id }}" class="thumbnail">
+                    <a href="/language/sheets/{{ language.id }}" class="thumbnail">
                         <img src="{{ language.image }}" alt="A generic logo from {{ language.name }}" width="100px" />
                         <figcaption class="figure-caption text-right">Voir tous les Sheets {{ language.name }}.</figcaption>
                     </a>

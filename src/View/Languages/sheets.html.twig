@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            {% for sheet in sheets %}
+                <div class="col-md-4 card-home"> {%include '_Components/_card.html.twig'  %}</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

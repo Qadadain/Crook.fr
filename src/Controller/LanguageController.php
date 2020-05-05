@@ -14,4 +14,15 @@ class LanguageController extends AbstractController
                 'languages' => $languages
             ]);
     }
+
+    public function sheets(int $id)
+    {
+        $languageManager = new LanguageManager();
+        $sheets = $languageManager->getSheetByLanguage($id);
+
+        return $this->twig->render('Languages/sheets.html.twig', [
+            'sheets' => $sheets,
+
+        ]);
+    }
 }

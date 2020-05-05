@@ -9,7 +9,6 @@ use App\Service\AdminService;
 
 class AdminController extends AbstractController
 {
-    const PAGE = 'home';
     const LIMIT = 10;
 
     public function home()

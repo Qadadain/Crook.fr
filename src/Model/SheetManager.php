@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+
+
 class SheetManager extends AbstractManager
 {
     const TABLE = 'sheet';
@@ -51,6 +53,20 @@ class SheetManager extends AbstractManager
         $sql = 'SELECT * FROM sheet s ORDER BY s.id LIMIT ' . $limit . ', ' . $maxLimit;
         $statement = $this->pdo->query($sql);
 
+        return $statement->fetchAll();
+    }
+    public function getSheetByTitle(string $searchTitle): array
+    {
+        $sql = 'SELECT s.id, s.title, s.created_at, s.updated_at, u.pseudo, l.name, l.image
+            FROM sheet s 
+            JOIN user u ON s.user_id = u.id
+            JOIN language l ON s.language_id = l.id
+            WHERE s.title 
+            LIKE :search';
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':search',  '%' . $searchTitle . '%' );
+        $statement->execute();
         return $statement->fetchAll();
     }
 }

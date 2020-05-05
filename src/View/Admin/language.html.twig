@@ -2,6 +2,7 @@
 {% block title %}Admin - page AllLanguage{% endblock %}
 {% block content %}
     <div class="container">
+        <div id="success-delete"></div>
         <table class="table table-dark">
             <thead>
             <tr>
@@ -20,13 +21,9 @@
                     <td>{{ language.is_valid == 1 ? 'Certifier' : 'Pas certfier' }}</td>
                     <td>{{ language.create_at }}</td>
                     <td>
-                        <a href="editLanguage/{{ language.id }}">
-                            <i class="far fa-edit"></i>
-                        </a>
+                        <i class="far fa-edit"></i>
                         /
-                        <a href="deleteLanguage/{{ language.id }}">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
+                        <i class="fas fa-trash-alt trash-language" data-id="{{ language.id }}"></i>
                     </td>
                 </tr>
             {% endfor %}
@@ -42,4 +39,7 @@
         </div>
     </div>
 {% endblock %}
-{% block javascript %} <script src="/assets/js/ajaxLanguage.js"></script>{% endblock %}
+{% block javascript %}
+<script src="/assets/js/ajaxLanguage.js"></script>
+<script src="/assets/js/scriptLanguage.js"></script>
+{% endblock %}

@@ -103,6 +103,13 @@ class AdminController extends AbstractController
         ]);
     }
 
+    public function ajaxDeleteLanguage()
+    {
+        $languageManager = new LanguageManager();
+        $languageManager->delete($_POST['id']);
+        return json_encode('Le language à était supprimer');
+    }
+
     public function editUser()
     {
         $userManager = new UserManager();

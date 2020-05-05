@@ -15,13 +15,13 @@ class AdminController extends AbstractController
     public function home()
     {
         $sheetManager = new SheetManager();
-        $sheets = $sheetManager->getSheetForAdmin(self::PAGE);
+        $sheets = $sheetManager->selectForAdmin();
 
         $userManager = new UserManager();
-        $users = $userManager->getUserForAdmin(self::PAGE);
+        $users = $userManager->selectForAdmin();
 
         $languageManager = new LanguageManager();
-        $languages = $languageManager->getLanguageForAdmin(self::PAGE);
+        $languages = $languageManager->selectForAdmin();
 
         return $this->twig->render('Admin/home.html.twig', [
             'sheets' => $sheets,
@@ -33,9 +33,9 @@ class AdminController extends AbstractController
     public function allLanguage()
     {
         $languageManager = new LanguageManager();
-        $language = $languageManager->getLanguageForAdmin(self::PAGE);
+        $language = $languageManager->selectForAdmin();
         $limit = self::LIMIT;
-        return $this->twig->render('Admin/language.html.twig', [
+        return $this->twig->render('Admin/allLanguage.html.twig', [
             'languages' => $language,
             'limit' => $limit,
         ]);
@@ -55,7 +55,7 @@ class AdminController extends AbstractController
     public function allsheet()
     {
         $sheetManager = new SheetManager();
-        $sheets = $sheetManager->getAllSheetForAdmin(self::PAGE);
+        $sheets = $sheetManager->getTenSheet();
         $limit = self::LIMIT;
         return $this->twig->render('Admin/allsheet.html.twig', [
             'sheets' => $sheets,
@@ -77,7 +77,7 @@ class AdminController extends AbstractController
     public function allUser()
     {
         $userManager = new UserManager();
-        $users = $userManager->getUserForAdmin(self::PAGE);
+        $users = $userManager->selectForAdmin();
         $limit = self::LIMIT;
         return $this->twig->render('Admin/allUser.html.twig', [
             'users' => $users,
@@ -110,10 +110,10 @@ class AdminController extends AbstractController
         return json_encode('Le language à était supprimer');
     }
 
-    public function editUser()
+    public function editUser(int $id)
     {
         $userManager = new UserManager();
-        $users = $userManager->getUserForAdmin(self::PAGE);
+        $users = $userManager->selectOneById($id);
         return $this->twig->render('Admin/editUser.html.twig', [
             'users' => $users,
         ]);

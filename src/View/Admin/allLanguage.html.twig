@@ -1,5 +1,5 @@
 {% extends 'adminLayout.html.twig' %}
-{% block title %}Admin - page AllLanguage{% endblock %}
+{% block title %}Admin - Gestion des Languages{% endblock %}
 {% block content %}
     <div class="container">
         <div id="success-delete"></div>
@@ -8,6 +8,8 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nom</th>
+                <th scope="col">Color</th>
+                <th scope="col">Image</th>
                 <th scope="col">Si valide</th>
                 <th scope="col">Créer le</th>
                 <th scope="col">Actions</th>
@@ -18,6 +20,8 @@
                 <tr>
                     <th scope="row">{{ loop.index }}</th>
                     <td>{{ language.name }}</td>
+                    <td>{{ language.color }}</td>
+                    <td>{{ language.picture }}</td>
                     <td>{{ language.is_valid == 1 ? 'Certifier' : 'Pas certfier' }}</td>
                     <td>{{ language.create_at }}</td>
                     <td>

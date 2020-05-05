@@ -67,4 +67,10 @@ abstract class AbstractManager
 
         return $statement->fetch();
     }
+
+    public function selectForAdmin(): array
+    {
+        $statement = $this->pdo->query('SELECT * FROM ' . $this->table . ' ORDER BY id DESC LIMIT 10');
+        return $statement->fetchAll();
+    }
 }

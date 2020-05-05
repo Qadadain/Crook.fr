@@ -23,7 +23,7 @@ class FormController extends AbstractController
             $messages = $formService->validateForm($_POST);
         }
         $languageManager = new LanguageManager();
-        $languages = $languageManager->getAllByName();
+        $languages = $languageManager->getLanguageName();
         return $this->twig->render('Form/form.html.twig', [
             'languages' => $languages,
             'post' => $_POST,

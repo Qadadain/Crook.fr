@@ -3,6 +3,7 @@
 {% block content %}
 <section>
     <div class="container">
+    <div id="success-delete"></div>
     <h1 class="text-center">Gestion des sheets</h1>
         <table class="table table-dark">
             <thead>
@@ -12,7 +13,7 @@
                 <th scope="col">Créer le </th>
                 <th scope="col">Mis à jour le</th>
                 <th scope="col">Auteur</th>
-                <th scope="col">Language</th>
+                <th scope="col">Langage</th>
                 <th scope="col">Popularité</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -28,13 +29,9 @@
                     <td>{{ sheet.name }}</td>
                     <td>{{ sheet.popularity }}</td>
                     <td>
-                        <a href="sheet/{{ sheet.id }}">
                             <i class="far fa-edit"></i>
-                        </a>
                         /
-                        <a href="deleteSheet/{{ sheet.id }}">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
+                            <i class="fas fa-trash-alt trash-sheet" data-id="{{ sheet.id }}"></i>
                     </td>
                 </tr>
             {% endfor %}
@@ -51,4 +48,7 @@
     </div>
 </section>
 {% endblock %}
-{% block javascript %}<script src="/assets/js/ajaxSheet.js"></script>{% endblock %}
+{% block javascript %}
+<script src="/assets/js/ajaxSheet.js"></script>
+    <script src="/assets/js/scriptSheet.js"></script>
+{% endblock %}

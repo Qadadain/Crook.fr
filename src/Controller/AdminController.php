@@ -9,7 +9,6 @@ use App\Service\AdminService;
 
 class AdminController extends AbstractController
 {
-    const PAGE = 'home';
     const LIMIT = 10;
 
     public function home()
@@ -107,7 +106,7 @@ class AdminController extends AbstractController
     {
         $languageManager = new LanguageManager();
         $languageManager->delete($_POST['id']);
-        return json_encode('Le language à était supprimer');
+        return json_encode('Le language a été supprimer');
     }
 
     public function editUser(int $id)
@@ -129,5 +128,17 @@ class AdminController extends AbstractController
             'users' => $users,
             'lengthTable' => $count,
         ]);
+    }
+    public function ajaxDeleteUser()
+    {
+        $userManager = new UserManager();
+        $userManager->delete($_POST['id']);
+        return json_encode('L\'utilisateur a été supprimer');
+    }
+    public function ajaxDeleteSheet()
+    {
+        $sheetManager = new SheetManager();
+        $sheetManager->delete($_POST['id']);
+        return json_encode('Le sheet a été supprimer');
     }
 }

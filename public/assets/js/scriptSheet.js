@@ -1,15 +1,15 @@
-let trashLanguage = $('.trash-language');
-for (let i = 0; i < trashLanguage.length; i++) {
-    trashLanguage[i].addEventListener('click', (e) => {
-        let id = trashLanguage[i].getAttribute('data-id');
-        let message = 'Voulez vous vraiment supprimer ce langage ?'
+let trashSheet = $('.trash-sheet');
+for (let i = 0; i < trashSheet.length; i++) {
+    trashSheet[i].addEventListener('click', (e) => {
+        let id = trashSheet[i].getAttribute('data-id');
+        let message = 'Voulez vous vraiment supprimer ce sheet ?'
         if (window.confirm(message)) {
             let formData = new FormData();
             formData.append('id', id);
             $.ajax({
                 type: 'POST',
                 data: formData,
-                url: '/admin/ajaxDeleteLanguage',
+                url: '/admin/ajaxDeleteSheet',
                 timeout: 3000,
                 dataType: 'json',
                 processData: false,

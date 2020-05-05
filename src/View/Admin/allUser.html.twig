@@ -4,6 +4,7 @@
 
 <section>
     <div class="container">
+    <div id="success-delete"></div>
     <h1 class="text-center">Gestion des utilisateurs</h1>
         <table class="table table-dark">
             <thead>
@@ -28,13 +29,9 @@
                     <td>{{ user.update_at }}</td>
                     <td>{{ user.role_user == 'ROLE_USER' ? 'Membre' : 'Administrateur' }}</td>
                     <td>
-                        <a href="editUser/{{ user.id }}">
                             <i class="far fa-edit"></i>
-                        </a>
                         /
-                        <a href="deleteUser/{{ user.id }}">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
+                            <i class="fas fa-trash-alt trash-user" data-id="{{ user.id }}"></i>
                     </td>
                 </tr>
             {% endfor %}
@@ -54,4 +51,7 @@
 
 
 {% endblock %}
-{% block javascript %}<script src="/assets/js/ajaxUser.js"></script>{% endblock %}
+{% block javascript %}
+    <script src="/assets/js/ajaxUser.js"></script>
+    <script src="/assets/js/scriptUser.js"></script>
+{% endblock %}

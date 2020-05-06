@@ -20,13 +20,13 @@ class LanguageManager extends AbstractManager
 
     public function addNewLanguage(string $language): string
     {
-        $sql = 'INSERT INTO language (name, color, image, create_at) 
-                VALUES (name = :name, color = :color, image = :image, create_at = :create_at)';
+        $sql = 'INSERT INTO language (name, color, image, is_valid, create_at) 
+                VALUES (:name, :color, :image, :is_valid, NOW())';
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':name', $language);
         $statement->bindValue(':color', '#161630');
         $statement->bindValue(':image', 'logo');
-        $statement->bindValue(':create_at', date('YY-MM-DD'));
+        $statement->bindValue(':is_valid', 0);
         $statement->execute();
         return $this->pdo->lastInsertId();
     }
@@ -51,6 +51,7 @@ class LanguageManager extends AbstractManager
         $statement = $this->pdo->query($sql);
         return $statement->fetchAll();
     }
+
     public function getSheetByLanguage(int $id): array
     {
         $sql = 'SELECT s.id, s.title, s.description, s.content, s.created_at, u.pseudo, l.name, l.image

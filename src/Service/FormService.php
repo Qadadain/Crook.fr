@@ -11,6 +11,7 @@ class FormService
     const DESCRIPTION_MIN_LENGHT = 5;
     const DESCRIPTION_MAX_LENGHT = 250;
     const CONTENT_MIN_LENGHT = 5;
+    const NEW_LANGUAGE_MAX_LENGHT = 100;
 
     public function validateForm(array $post)
     {
@@ -25,22 +26,18 @@ class FormService
         if (empty($post['content']) || strlen($post['content']) < self::CONTENT_MIN_LENGHT) {
             $errors[] = 'Votre contenue dois faire plus de 5 caractères';
         }
-        if (empty($errors)) {
-            $return = $this->insertIntoSheet($post);
-        } else {
-            $return = $errors;
+        if (isset($post['newLanguage']) && strlen($post['newLanguage']) > self::NEW_LANGUAGE_MAX_LENGHT) {
+            $errors[] = 'Votre language ne doit pas faire plus de 100 caractères';
         }
-        return $return;
+        return $errors;
     }
 
     public function insertIntoSheet(array $post)
     {
-        $languageManager = new LanguageManager();
-        $language = $languageManager->selectOneById($post['language']);
         $newLanguage = null;
-        if (count($language) === 0) {
+        if (isset($post['newLanguage'])) {
             $addLanguage = new LanguageManager();
-            $newLanguage = $addLanguage->addNewLanguage($post['language']);
+            $newLanguage = $addLanguage->addNewLanguage($post['newLanguage']);
         }
         $sheetManager = new SheetManager();
         return $sheetManager->addNewSheet($post, $newLanguage);

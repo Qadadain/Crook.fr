@@ -2,15 +2,11 @@
 {% block content %}
     <section class="container-fluid">
         <h2 class="text-center">Ajout de sheet</h2>
-        {% if messages is iterable %}
+        {% if errors is iterable %}
             <div class="bg-danger text-center">
-                {% for message in messages %}
-                    <p class="text-light">{{ message }}</p>
+                {% for error in errors %}
+                    <p class="text-light">{{ error }}</p>
                 {% endfor %}
-            </div>
-        {% else %}
-            <div class="bg-success text-center">
-                <p class="text-light">{{ messages }}</p>
             </div>
         {% endif %}
         <form method="post">
@@ -34,6 +30,16 @@
                         {% endif %}
                     {% endfor %}
                 </select>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseInput" aria-expanded="false" aria-controls="collapseInput">
+                    Ajoutée un language
+                </button>
+                </p>
+                <div class="collapse" id="collapseInput">
+                    <div class="card card-body">
+                        <label for="newLanguage">Nom du langage</label>
+                        <input class="form-control" name="newLanguage" id="newLanguage" type="text">
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="content">Ajoute ton sheet</label>

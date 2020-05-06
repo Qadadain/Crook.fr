@@ -1,0 +1,20 @@
+{% for sheet in sheets %}
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ sheet.title }}</td>
+                        <td>{{ sheet.created_at }}</td>
+                        <td>{{ sheet.updated_at }}</td>
+                        <td>{{ sheet.pseudo }}</td>
+                        <td>{{ sheet.name }}</td>
+                        <td>
+                            <a href="sheet/{{ sheet.id }}">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            /
+                            <a href="deleteSheet/{{ sheet.id }}">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+<input id="lengthTable" type="hidden" value="{{ lengthTable }}">

@@ -17,11 +17,12 @@ class UserController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userManager = new UserManager();
-            $userData = $userManager->getEmailByEmail($_POST['email']);
+            $userData = $userManager->getUserByEmail($_POST['email']);
             if (!is_array($userData)) {
                 header('Location: /user/signin');
             }
             if (password_verify($_POST['password'], $userData['password'])) {
+                $_SESSION['id'] = $userData['id'];
                 $_SESSION['email'] = $userData['email'];
                 $_SESSION['pseudo'] = $userData['pseudo'];
                 $_SESSION['role_user'] = $userData['role_user'];

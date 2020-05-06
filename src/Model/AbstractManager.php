@@ -67,4 +67,17 @@ abstract class AbstractManager
 
         return $statement->fetch();
     }
+
+    public function delete(int $id)
+    {
+        $statement = $this->pdo->prepare('DELETE FROM '. $this->table . ' WHERE id = :id');
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+    
+    public function selectForAdmin(): array
+    {
+        $statement = $this->pdo->query('SELECT * FROM ' . $this->table . ' ORDER BY id DESC LIMIT 10');
+        return $statement->fetchAll();
+    }
 }

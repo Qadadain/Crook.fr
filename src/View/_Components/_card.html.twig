@@ -4,17 +4,17 @@
         <h5 class="card-title">{{ sheet.title }}</h5>
         <p class="card-text">{{ sheet.description }}</p>
         <!-- Button trigger modal -->
-        <button type="button" style="background-color: {{ sheet.color }}" class="btn btn-primary" data-toggle="modal" data-target="#cardModal{{ sheet.id }}">
+        <button type="button" style="background-color: {{ sheet.color }}" class="btn btn-primary" data-toggle="modal" data-target="#cardModal{{ loop.index }}">
             Voir le sheet
         </button>
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="cardModal{{ sheet.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="cardModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">{{ sheet.title }}</h5>
+                <h5 class="modal-title">{{ sheet.title }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

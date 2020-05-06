@@ -1,0 +1,57 @@
+{% extends 'adminLayout.html.twig' %}
+{% block title %}Admin - les utilisateurs{% endblock %}
+{% block content %}
+
+<section>
+    <div class="container">
+    <div id="success-delete"></div>
+    <h1 class="text-center">Gestion des utilisateurs</h1>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pseudo</th>
+                <th scope="col">Email </th>
+                <th scope="col">Créer le </th>
+                <th scope="col">Modifier le</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="userTable">
+
+            {% for user in users %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ user.pseudo }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.create_at }}</td>
+                    <td>{{ user.update_at }}</td>
+                    <td>{{ user.role_user == 'ROLE_USER' ? 'Membre' : 'Administrateur' }}</td>
+                    <td>
+                            <i class="far fa-edit"></i>
+                        /
+                            <i class="fas fa-trash-alt trash-user" data-id="{{ user.id }}"></i>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-6 text-left">
+                <button class="btn btn-secondary" id="previous" value="{{ limit - 10 }}" style="display: none">Page précédente</button>
+            </div>
+            <div class="col-6 text-right">
+                <button class="btn btn-primary" id="next" value="{{ limit }}">Page suivante</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+{% block javascript %}
+    <script src="/assets/js/ajaxUser.js"></script>
+    <script src="/assets/js/scriptUser.js"></script>
+{% endblock %}

@@ -20,14 +20,17 @@ class FormController extends AbstractController
     {
         if (!empty($_POST)) {
             $formService = new FormService();
-            $messages = $formService->validateForm($_POST);
+            $errors = $formService->validateForm($_POST);
+            if (empty($errors)) {
+                $formService->insertIntoSheet($_POST);
+            }
         }
         $languageManager = new LanguageManager();
-        $languages = $languageManager->getAllByName();
+        $languages = $languageManager->getLanguageName();
         return $this->twig->render('Form/form.html.twig', [
             'languages' => $languages,
             'post' => $_POST,
-            'messages' => isset($messages) ? $messages : null,
+            'errors' => isset($errors) ? $errors : null,
         ]);
     }
 }

@@ -29,44 +29,40 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">About Us</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Languages
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">PHP</a>
-                    <a class="dropdown-item" href="#">JAVA</a>
-                    <a class="dropdown-item" href="#">JavaScript</a>
-                    <a class="dropdown-item" href="#">Python</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Other languages</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                {% if session.pseudo %}
-            <li class="nav-item">
-                <a class="nav-link" href="#">Bonjour {{ session.pseudo }} !</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/user/logout">Déconnexion</a>
-            </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Acceuil<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/about">À propos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Language/list">Langages</a>
+                </li>
+            {% if session.pseudo %}
+                <li class="nav-item">
+                    <p class="nav-link">Bonjour {{ session.pseudo }} !</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/form/add">Créer un sheet</a>
+                </li>
+                {% if session.role_user is same as('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a href="/admin/home" class="nav-link">Administration</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/logout">Déconnexion</a>
+                </li>
             {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="/user/signin">Connexion / S'enregistrer</a>
                 </li>
             {% endif %}
-            </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button type="button" class="btn btn-dark">Search</button>
+        <form  action="/home/search/" class="form-inline my-2 my-lg-0">
+            <input  name="search" class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+            <button type="submit" class="btn btn-dark">Recherche</button>
 
         </form>
     </div>
@@ -93,7 +89,7 @@
         <!-- Content -->
         <h6 class="text-uppercase font-weight-bold">Crook</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>We profide you cheat sheet to be a better programmer.</p>
+        <p>Fournisseur officiel de sheet pour développeurs et développeuses.</p>
 
       </div>
         <!-- Grid column -->
@@ -102,8 +98,8 @@
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Languages</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <h6 class="text-uppercase font-weight-bold">Langages</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto">
         <p>
           <a href="#!">PHP</a>
         </p>
@@ -114,7 +110,7 @@
           <a href="#!">Javascript</a>
         </p>
         <p>
-          <a href="#!">Other languages</a>
+          <a href="#!">Autre langages</a>
         </p>
 
       </div>
@@ -124,13 +120,13 @@
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto">
         <p>
-          <a href="#!">Your Account</a>
+          <a href="#!">Votre compte</a>
         </p>
         <p>
-          <a href="#!">Become member of the team </a>
+          <a href="#!">Devenir membre </a>
         </p>
         <p>
           <a href="#!">FAQ</a>
@@ -146,9 +142,9 @@
         <h6 class="text-uppercase font-weight-bold">Contact</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <i class="fas fa-home mr-3"></i> Bordeaux, France</p>
+          <i class="fas fa-home mr-3"></i>Bordeaux, France</p>
         <p>
-          <i class="fas fa-envelope mr-3"></i> crookteam@example.com</p>
+          <i class="fas fa-envelope mr-3"></i>crookteam@crook.com</p>
 
       </div>
         <!-- Grid column -->
@@ -168,7 +164,6 @@
     </div>
 
 </footer>
-
 {#  End FOOTER #}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

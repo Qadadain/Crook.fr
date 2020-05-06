@@ -1,0 +1,52 @@
+{% extends 'adminLayout.html.twig' %}
+{% block title %}Admin - page AllSheet{% endblock %}
+{% block content %}
+<section>
+    <div class="container">
+    <div id="success-delete"></div>
+    <h1 class="text-center">Gestion des sheets</h1>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Créer le </th>
+                <th scope="col">Mis à jour le</th>
+                <th scope="col">Auteur</th>
+                <th scope="col">Langage</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="sheetTable">
+            {% for sheet in sheets %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ sheet.title }}</td>
+                    <td>{{ sheet.created_at }}</td>
+                    <td>{{ sheet.updated_at }}</td>
+                    <td>{{ sheet.pseudo }}</td>
+                    <td>{{ sheet.name }}</td>
+                    <td>
+                            <i class="far fa-edit"></i>
+                        /
+                            <i class="fas fa-trash-alt trash-sheet" data-id="{{ sheet.id }}"></i>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-6 text-left">
+                <button class="btn btn-secondary" id="previous" value="{{ limit - 10 }}" style="display: none">Page précédente</button>
+            </div>
+            <div class="col-6 text-right">
+                <button class="btn btn-primary" id="next" value="{{ limit }}">Page suivante</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block javascript %}
+<script src="/assets/js/ajaxSheet.js"></script>
+    <script src="/assets/js/scriptSheet.js"></script>
+{% endblock %}

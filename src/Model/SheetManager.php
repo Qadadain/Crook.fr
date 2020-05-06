@@ -57,7 +57,7 @@ class SheetManager extends AbstractManager
     }
     public function getSheetByTitle(string $searchTitle): array
     {
-        $sql = 'SELECT s.id, s.title, s.created_at, s.updated_at, u.pseudo, l.name, l.image
+        $sql = 'SELECT *
             FROM sheet s 
             JOIN user u ON s.user_id = u.id
             JOIN language l ON s.language_id = l.id

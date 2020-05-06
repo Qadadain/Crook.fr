@@ -20,8 +20,8 @@
             </div>
             <div class="form-group">
                 <label for="language">Langage</label>
-                <select name="language" id="language" class="form-control" name="language" required>
-                    <option value="0">Veuillez sélectionner un langage</option>
+                <select name="language" id="language" class="form-control" name="language">
+                    <option value="">Veuillez sélectionner un langage</option>
                     {% for language in languages %}
                         {% if post is defined and post.language is same as(language.id) %}
                             <option value="{{ language.id }}" selected>{{ language.name }}</option>

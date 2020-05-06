@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="language">Language</label>
                 <select name="language" id="language" class="form-control" name="language" required>
-                    <option value="0">Veuillez choisir un language</option>
+                    <option value="0">Veuillez sélectionner un langage</option>
                     {% for language in languages %}
                         {% if post is defined and post.language is same as(language.id) %}
                             <option value="{{ language.id }}" selected>{{ language.name }}</option>
@@ -31,7 +31,7 @@
                     {% endfor %}
                 </select>
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseInput" aria-expanded="false" aria-controls="collapseInput">
-                    Ajoutée un language
+                    Ajouter un langage
                 </button>
                 </p>
                 <div class="collapse" id="collapseInput">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="content">Ajoute ton sheet</label>
+                <label for="content">Description</label>
                 <textarea name="content" id="content" class="form-control" cols="30" rows="10" required></textarea>
             </div>
             <div class="form-group row">

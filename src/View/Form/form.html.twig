@@ -16,10 +16,10 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" placeholder="Une courte description de sont utilité" name="description" value="{{ post is defined ? post.description : '' }}" required>
+                <input type="text" class="form-control" placeholder="Une courte description de son utilité" name="description" value="{{ post is defined ? post.description : '' }}" required>
             </div>
             <div class="form-group">
-                <label for="language">Language</label>
+                <label for="language">Langage</label>
                 <select name="language" id="language" class="form-control" name="language" required>
                     <option value="0">Veuillez sélectionner un langage</option>
                     {% for language in languages %}
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="content">Description</label>
+                <label for="content">Ajoute ton sheet</label>
                 <textarea name="content" id="content" class="form-control" cols="30" rows="10" required></textarea>
             </div>
             <div class="form-group row">

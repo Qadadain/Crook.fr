@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-
-
 class SheetManager extends AbstractManager
 {
     const TABLE = 'sheet';
@@ -65,7 +63,7 @@ class SheetManager extends AbstractManager
             LIKE :search';
 
         $statement = $this->pdo->prepare($sql);
-        $statement->bindValue(':search',  '%' . $searchTitle . '%' );
+        $statement->bindValue(':search','%' . $searchTitle . '%');
         $statement->execute();
         return $statement->fetchAll();
     }

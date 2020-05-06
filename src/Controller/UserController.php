@@ -22,6 +22,7 @@ class UserController extends AbstractController
                 header('Location: /user/signin');
             }
             if (password_verify($_POST['password'], $userData['password'])) {
+                $_SESSION['id'] = $userData['id'];
                 $_SESSION['email'] = $userData['email'];
                 $_SESSION['pseudo'] = $userData['pseudo'];
                 $_SESSION['role_user'] = $userData['role_user'];

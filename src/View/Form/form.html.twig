@@ -16,12 +16,12 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" placeholder="Une courte description de sont utilité" name="description" value="{{ post is defined ? post.description : '' }}" required>
+                <input type="text" class="form-control" placeholder="Une courte description de son utilité" name="description" value="{{ post is defined ? post.description : '' }}" required>
             </div>
             <div class="form-group">
-                <label for="language">Language</label>
+                <label for="language">Langage</label>
                 <select name="language" id="language" class="form-control" name="language" required>
-                    <option value="0">Veuillez choisir un language</option>
+                    <option value="0">Veuillez sélectionner un langage</option>
                     {% for language in languages %}
                         {% if post is defined and post.language is same as(language.id) %}
                             <option value="{{ language.id }}" selected>{{ language.name }}</option>
@@ -31,7 +31,7 @@
                     {% endfor %}
                 </select>
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseInput" aria-expanded="false" aria-controls="collapseInput">
-                    Ajoutée un language
+                    Ajouter un langage
                 </button>
                 </p>
                 <div class="collapse" id="collapseInput">

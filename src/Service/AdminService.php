@@ -14,16 +14,16 @@ class AdminService
     {
         $errors = [];
         if ($post['name'] > self::MAX_LENGHT_NAME) {
-            $errors[] = 'Votre nom doit etre inférieur à 100 caracthères';
+            $errors[] = 'Votre nom doit etre inférieur à 100 caractères';
         }
         if ($post['color'] > self::MAX_LENGHT_COLOR) {
-            $errors[] = 'Votre couleur doit etre inférieur à 10 caracthères';
+            $errors[] = 'Votre couleur doit etre inférieur à 10 caractères';
         }
         if (!preg_match('/^#/', $post['color'])) {
             $errors[] = 'Votre couleur doit être en hexadecimal';
         }
         if (!in_array($post['isValid'], self::ARRAY_VALUE_ISVALID)) {
-            $errors[] = 'Veuillez choisir si vous certifier le language';
+            $errors[] = 'Veuillez choisir si vous certifiez le langage';
         }
         return $errors;
     }

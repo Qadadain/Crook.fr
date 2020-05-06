@@ -32,7 +32,7 @@ class SheetManager extends AbstractManager
 
     public function getTenSheet(): array
     {
-        $sql = 'SELECT s.id, s.title, s.created_at, s.popularity, s.updated_at, u.pseudo, l.name
+        $sql = 'SELECT s.id, s.title, s.created_at, popularity, s.updated_at, u.pseudo, l.name
             FROM sheet s 
             JOIN user u ON s.user_id = u.id
             JOIN language l ON s.language_id = l.id

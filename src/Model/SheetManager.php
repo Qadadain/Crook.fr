@@ -15,7 +15,7 @@ class SheetManager extends AbstractManager
     public function addNewSheet(array $post, ?int $language): string
     {
         $return = 'Une erreur c\'est produite lors de l\'ajout';
-        $sql = 'INSERT INTO sheet (title, description, content, created_at, popularity, user_id, language_id) 
+        $sql = 'INSERT INTO sheet (title, description, content, created_at, user_id, language_id) 
                 VALUES (:title, :description, :content, NOW(), :user_id, :language_id)';
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':title', $post['title']);

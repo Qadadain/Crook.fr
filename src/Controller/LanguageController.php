@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Model\LanguageManager;
+use Michelf\Markdown;
+use Michelf\MarkdownExtra;
 
 class LanguageController extends AbstractController
 {
@@ -19,6 +21,13 @@ class LanguageController extends AbstractController
     {
         $languageManager = new LanguageManager();
         $sheets = $languageManager->getSheetByLanguage($id);
+        foreach ($sheets as $key => $sheet) {
+        //   $new_string = preg_replace("/\r\n|\r|\n/", ' ', $sheet['content']);
+            $markdown = MarkdownExtra::defaultTransform($sheet['content']);
+            $sheets[$key]['content'] = $markdown;
+        }
+
+
 
         return $this->twig->render('Languages/sheets.html.twig', [
             'sheets' => $sheets,

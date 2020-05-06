@@ -2,7 +2,7 @@
 {% block content %}
 <section class="d-flex align-items-center">
     <div class="container bg-dark p-5">
-        <h2 class="text-light">Editer le language n°{{ language.id }}</h2>
+        <h2 class="text-light">Editer le langage n°{{ language.id }}</h2>
         {% for error in errors %}
             <p class="bg-danger">{{ error }}</p>
         {% endfor %}
@@ -32,9 +32,9 @@
             <div class="form-group">
                 <label class="text-light" for="isValid">Certifié</label>
                 <select class="form-control" name="isValid" id="isValid">
-                    <option>Choisire une options</option>
-                    <option value="1" {{ language.is_valid == '1' ? 'selected' : '' }}>Certifier</option>
-                    <option value="0" {{ language.is_valid == '0' ? 'selected' : '' }}>Non Certifier</option>
+                    <option>Choisir une option</option>
+                    <option value="1" {{ language.is_valid == '1' ? 'selected' : '' }}>Certifié</option>
+                    <option value="0" {{ language.is_valid == '0' ? 'selected' : '' }}>Non Certifié</option>
                 </select>
             </div>
             <input type="hidden" name="id" value="{{ language.id }}">

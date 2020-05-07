@@ -19,7 +19,10 @@ class UserController extends AbstractController
             $userManager = new UserManager();
             $userData = $userManager->getUserByEmail($_POST['email']);
             if (!is_array($userData)) {
-                header('Location: /user/signin');
+                $error = 'Vous n\'êtes pas inscrit !';
+                return $this->twig->render('User/user.html.twig', [
+                    'error' => $error,
+                ]);
             }
             if (password_verify($_POST['password'], $userData['password'])) {
                 $_SESSION['id'] = $userData['id'];

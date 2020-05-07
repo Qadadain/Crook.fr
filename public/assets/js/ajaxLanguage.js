@@ -6,7 +6,7 @@ $(() => {
         let limit = $("#next").val();
         $.ajax({
             type: 'GET',
-            url: "changeLanguage/" + limit,
+            url: "/ajax/ajaxchangelanguage/" + limit,
             timeout: 3000,
             dataType: 'html',
             success: (data) => {
@@ -31,7 +31,7 @@ $(() => {
         let nextValue = $("#next").val();
         $.ajax({
             type: 'GET',
-            url: "changeLanguage/" + limit,
+            url: "/ajax/ajaxchangelanguage/" + limit,
             timeout: 3000,
             dataType: 'html',
             success: (data) => {

@@ -1,0 +1,39 @@
+{% extends 'adminLayout.html.twig' %}
+{% block title %}Édition Utilisateur{% endblock %}
+{% block content %}
+    <section class="d-flex align-items-center">
+        <div class="container bg-dark p-5 m-auto">
+            <h2 class="text-light">Editer l'utilisateur n°{{ user.id }}</h2>
+            {% for error in errors %}
+                <p class="bg-danger">{{ error }}</p>
+            {% endfor %}
+            {% if success %}
+                <div class="alert alert-success">
+                    <p>La modification à fonctionner avec succés</p>
+                </div>
+            {% endif %}
+            <form action="" method="post">
+                <div class="form-group">
+                    <label class="text-light" for="pseudo">Pseudo</label>
+                    <input class="form-control" type="text" name="pseudo" value="{{ user.pseudo }}" id="pseudo">
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="email">Email</label>
+                    <input class="form-control" type="email" name="email" value="{{ user.email }}" id="email">
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="role">Role</label>
+                    <select class="form-control" name="role" id="role">
+                        <option>Choisir une option</option>
+                        <option value="ROLE_USER" {{ user.role_user == 'ROLE_USER' ? 'selected' : '' }}>Utilisateur</option>
+                        <option value="ROLE_ADMIN" {{ user.role_user == 'ROLE_ADMIN' ? 'selected' : '' }}>Administrateur</option>
+                    </select>
+                </div>
+                <input type="hidden" name="id" value="{{ user.id }}">
+                <div class="text-center">
+                    <button class="btn btn-secondary">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

@@ -56,4 +56,17 @@ class UserManager extends AbstractManager
 
         return $statement->fetchAll();
     }
+
+    public function editUser(array $post): bool
+    {
+        $sql = 'UPDATE '. self::TABLE .' 
+            SET pseudo = :pseudo, email = :email, role_user = :role, update_at = NOW()
+            WHERE id = :id';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':pseudo', $post['pseudo']);
+        $statement->bindValue(':email', $post['email']);
+        $statement->bindValue(':role', $post['role']);
+        $statement->bindValue(':id', $post['id']);
+        return $statement->execute();
+    }
 }

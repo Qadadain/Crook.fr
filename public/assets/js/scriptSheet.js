@@ -9,7 +9,7 @@ for (let i = 0; i < trashSheet.length; i++) {
             $.ajax({
                 type: 'POST',
                 data: formData,
-                url: '/admin/ajaxDeleteSheet',
+                url: '/ajax/ajaxDeleteSheet',
                 timeout: 3000,
                 dataType: 'json',
                 processData: false,

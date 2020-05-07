@@ -9,7 +9,7 @@ for (let i = 0; i < trashLanguage.length; i++) {
             $.ajax({
                 type: 'POST',
                 data: formData,
-                url: '/admin/ajaxDeleteLanguage',
+                url: '/ajax/ajaxDeleteLanguage',
                 timeout: 3000,
                 dataType: 'json',
                 processData: false,

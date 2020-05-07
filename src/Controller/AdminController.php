@@ -99,4 +99,30 @@ class AdminController extends AbstractController
             'success' => $success,
         ]);
     }
+
+    public function editSheet(int $id): string
+    {
+        $errors = [];
+        $success = false;
+        if (!empty($_POST)) {
+            $adminService = new AdminService();
+            $errors = $adminService->sheetForm($_POST);
+            if (empty($errors)) {
+                $success = $adminService->editSheet($_POST);
+            }
+        }
+        $sheetManager = new SheetManager();
+        $sheet = $sheetManager->getSheetById($id);
+        $languageManager = new LanguageManager();
+        $languages = $languageManager->selectAll();
+        $userManager = new UserManager();
+        $users = $userManager->selectAll();
+        return $this->twig->render('Admin/editSheet.html.twig', [
+            'sheet' => $sheet,
+            'languages' => $languages,
+            'users' => $users,
+            'errors' => $errors,
+            'success' => $success,
+        ]);
+    }
 }

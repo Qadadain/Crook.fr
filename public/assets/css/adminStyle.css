@@ -11,6 +11,15 @@ body {
     color: #0056b3;
 }
 
+.fa-image {
+    cursor: pointer;
+    color: #007bff;
+}
+
+.fa-image:hover {
+    color: #0056b3;
+}
+
 a:hover {
     text-decoration: none;
 }

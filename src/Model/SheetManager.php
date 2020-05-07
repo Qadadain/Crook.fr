@@ -51,6 +51,7 @@ class SheetManager extends AbstractManager
 
         return $statement->fetchAll();
     }
+
     public function getSheetByTitle(string $searchTitle): array
     {
         $sql = 'SELECT *
@@ -64,5 +65,34 @@ class SheetManager extends AbstractManager
         $statement->bindValue(':search', '%' . $searchTitle . '%');
         $statement->execute();
         return $statement->fetchAll();
+    }
+
+    public function getSheetById(int $id): array
+    {
+        $sql = 'SELECT s.id, s.title, s.description, s.content, u.pseudo, u.id userId, l.id languageId, l.name
+            FROM sheet s 
+            JOIN user u ON s.user_id = u.id
+            JOIN language l ON s.language_id = l.id
+            WHERE s.id = :id';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+        return $statement->fetch();
+    }
+
+    public function editSheet(array $post): bool
+    {
+        $sql = 'UPDATE '. self::TABLE .' 
+            SET title = :title, description = :description, content = :content, 
+                user_id = :author, language_id = :language, updated_at = NOW()
+            WHERE id = :id';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':title', $post['title']);
+        $statement->bindValue(':description', $post['description']);
+        $statement->bindValue(':content', $post['content']);
+        $statement->bindValue(':author', $post['author']);
+        $statement->bindValue(':language', $post['language']);
+        $statement->bindValue(':id', $post['id']);
+        return $statement->execute();
     }
 }

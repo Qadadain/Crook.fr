@@ -11,7 +11,6 @@
                     <th scope="col">#</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Créer le </th>
-                    <th scope="col">Mis à jour le</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -21,9 +20,10 @@
                     <th scope="row">{{ loop.index }}</th>
                             <td>{{ sheet.title }}</td>
                             <td>{{ sheet.created_at }}</td>
-                            <td>{{ sheet.name }}</td>
                             <td>
+                                <a href="/admin/editsheet/{{ sheet.id }}">
                                     <i class="far fa-edit"></i>
+                                </a>
                                 /
                                     <i class="fas fa-trash-alt trash-sheet" data-id="{{ sheet.id }}"></i>
                             </td>
@@ -42,8 +42,6 @@
                     <th scope="col">#</th>
                     <th scope="col">Pseudo</th>
                     <th scope="col">Email </th>
-                    <th scope="col">Créer le </th>
-                    <th scope="col">Modifier le</th>
                     <th scope="col">Role</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -54,8 +52,6 @@
                     <th scope="row">{{ loop.index }}</th>
                         <td>{{ user.pseudo }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.create_at }}</td>
-                        <td>{{ user.update_at }}</td>
                         <td>{{ user.role_user == 'ROLE_USER' ? 'Membre' : 'Administrateur' }}</td>
                         <td>
                             <a href="/admin/editUser/{{ user.id }}">
@@ -78,7 +74,6 @@
                     <th scope="col">#</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Si valide</th>
-                    <th scope="col">Créer le</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -88,7 +83,6 @@
                     <th scope="row">{{ loop.index }}</th>
                         <td>{{ language.name }}</td>
                         <td>{{ language.is_valid == 1 ? 'Certifier' : 'Pas certfier' }}</td>
-                        <td>{{ language.create_at }}</td>
                         <td>
                             <a href="/admin/editLanguage/{{ language.id }}">
                                 <i class="far fa-edit"></i>

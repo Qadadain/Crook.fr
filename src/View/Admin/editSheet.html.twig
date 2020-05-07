@@ -1,0 +1,55 @@
+{% extends 'adminLayout.html.twig' %}
+{% block title %}Admin - Édition d'un sheet{% endblock %}
+{% block content %}
+    <section class="d-flex align-items-center">
+        <div class="container bg-dark p-5 m-auto">
+            <h2 class="text-light">Editer le sheet n°{{ sheet.id }}</h2>
+            {% for error in errors %}
+                <p class="bg-danger">{{ error }}</p>
+            {% endfor %}
+            {% if success %}
+                <div class="alert alert-success">
+                    <p>La modification à fonctionner avec succés</p>
+                </div>
+            {% endif %}
+            <form action="" method="post">
+                <div class="form-group">
+                    <label class="text-light" for="title">Titre</label>
+                    <input class="form-control" type="text" name="title" value="{{ sheet.title }}">
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="description">Description</label>
+                    <input class="form-control" type="text" name="description" value="{{ sheet.description }}">
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="content">Contenue</label>
+                    <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ sheet.content }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="language">Langage</label>
+                    <select class="form-control" name="language" id="language">
+                        <option>Choisir un language</option>
+                        <option value="{{ sheet.languageId }}" selected>{{ sheet.name }}</option>
+                        {% for language in languages %}
+                            <option value="{{ language.id }}">{{ language.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="author">Autheur</label>
+                    <select class="form-control" name="author" id="author">
+                        <option>Choisir un Autheur</option>
+                        <option value="{{ sheet.userId }}" selected>{{ sheet.pseudo }}</option>
+                        {% for user in users %}
+                            <option value="{{ user.id }}">{{ user.pseudo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="hidden" name="id" value="{{ sheet.id }}">
+                <div class="text-center">
+                    <button class="btn btn-secondary">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

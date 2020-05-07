@@ -18,6 +18,7 @@ class FormController extends AbstractController
      */
     public function add()
     {
+
         if (!empty($_POST)) {
             $formService = new FormService();
             $errors = $formService->validateForm($_POST);

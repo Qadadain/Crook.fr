@@ -18,7 +18,7 @@ class LanguageManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function addNewLanguage(string $language): string
+    public function addNewLanguage(string $language): int
     {
         $sql = 'INSERT INTO language (name, color, image, is_valid, create_at) 
                 VALUES (:name, :color, :image, :is_valid, NOW())';
@@ -28,7 +28,7 @@ class LanguageManager extends AbstractManager
         $statement->bindValue(':image', 'logo');
         $statement->bindValue(':is_valid', 0);
         $statement->execute();
-        return $this->pdo->lastInsertId();
+        return (int)$this->pdo->lastInsertId();
     }
 
     public function editLanguage(array $post): void
@@ -62,6 +62,15 @@ class LanguageManager extends AbstractManager
 
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':id', $id);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    public function checkLanguage($name): array
+    {
+        var_dump($name);
+        $statement = $this->pdo->prepare('SELECT name from language WHERE name = :name');
+        $statement->bindValue(':name', $name);
         $statement->execute();
         return $statement->fetchAll();
     }

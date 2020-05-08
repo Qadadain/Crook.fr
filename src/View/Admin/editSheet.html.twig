@@ -9,7 +9,7 @@
             {% endfor %}
             {% if success %}
                 <div class="alert alert-success">
-                    <p>La modification à fonctionner avec succés</p>
+                    <p>La modification a été effectuée avec succès </p>
                 </div>
             {% endif %}
             <form action="" method="post">
@@ -22,13 +22,13 @@
                     <input class="form-control" type="text" name="description" value="{{ sheet.description }}">
                 </div>
                 <div class="form-group">
-                    <label class="text-light" for="content">Contenue</label>
+                    <label class="text-light" for="content">Contenu</label>
                     <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ sheet.content }}</textarea>
                 </div>
                 <div class="form-group">
                     <label class="text-light" for="language">Langage</label>
                     <select class="form-control" name="language" id="language">
-                        <option>Choisir un language</option>
+                        <option>Choisir un langage</option>
                         <option value="{{ sheet.languageId }}" selected>{{ sheet.name }}</option>
                         {% for language in languages %}
                             <option value="{{ language.id }}">{{ language.name }}</option>
@@ -36,9 +36,9 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="text-light" for="author">Autheur</label>
+                    <label class="text-light" for="author">Auteur</label>
                     <select class="form-control" name="author" id="author">
-                        <option>Choisir un Autheur</option>
+                        <option>Choisir un Auteur</option>
                         <option value="{{ sheet.userId }}" selected>{{ sheet.pseudo }}</option>
                         {% for user in users %}
                             <option value="{{ user.id }}">{{ user.pseudo }}</option>

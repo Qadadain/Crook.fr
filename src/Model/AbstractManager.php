@@ -74,7 +74,7 @@ abstract class AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
-    
+
     public function selectForAdmin(): array
     {
         $statement = $this->pdo->query('SELECT * FROM ' . $this->table . ' ORDER BY id DESC LIMIT 10');

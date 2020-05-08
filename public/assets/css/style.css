@@ -25,6 +25,7 @@ h1, h2, h3, h4, h5 {
 }
 body {
     font-family: "Fira Code", sans-serif;
+    background-color: snow;
 }
 /*
     Navbar
@@ -65,8 +66,8 @@ div.row{
     display: flex;
 }
 .card-img-top{
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
 }
 .card{
   box-shadow: 1px 2px 2px #dad4f3;
@@ -196,7 +197,7 @@ h6 {
     border-right: grey 1px solid;
 }
 .image-language {
-width: 400px;
+width: 250px;
     height: 300px;
     padding: 50px;
 }

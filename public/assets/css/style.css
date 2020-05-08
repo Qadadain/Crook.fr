@@ -44,12 +44,22 @@ h3 {
 /*
     Home
  */
+.home-title{
+    font-size: 4.8rem;
+    color: #1b1b33;
+}
+.home-downtitle{
+    font-size: 2rem;
+}
+.home-js{
+    font-size: 1.8rem;
+}
 div.row{
     justify-content: center;
     height: 100%;
     margin: 5px;
-
 }
+
 .card-title{
     justify-content: center;
     display: flex;
@@ -57,8 +67,9 @@ div.row{
 .card-img-top{
     width: 200px;
     height: 200px;
-
-
+}
+.card{
+  box-shadow: 1px 2px 2px #dad4f3;
 }
 div.container-fleximage{
     display: flex;
@@ -70,17 +81,6 @@ div.container-fleximage{
 div.img-language{
     display: flex;
     justify-content: center;
-}
-
-div.button-center{
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    width : 100%;
-
-}
-div.modal-body{
-    background-color:gray;
 }
 
 .word {
@@ -152,6 +152,19 @@ div.modal-body{
 /* cell number */
 
 
+
+/*
+    modal
+ */
+.modal-title{
+    color:aliceblue;
+}
+.modal-header{
+    background-color: #1b1b33;
+}
+span.cross{
+    color:aliceblue;
+}
 
 /*
     Form

@@ -9,7 +9,10 @@ h1.text-center {
 a th td  {
     color: aliceblue;
 }
+.nav-margin{
+  margin-right: 200px;
 
+}
 .fa-trash-alt {
     cursor: pointer;
     color: #007bff;

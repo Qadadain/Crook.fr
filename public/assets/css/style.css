@@ -44,10 +44,44 @@ h3 {
 /*
     Home
  */
+div.row{
+    justify-content: center;
+    height: 100%;
+    margin: 5px;
+
+}
+.card-title{
+    justify-content: center;
+    display: flex;
+}
+.card-img-top{
+    width: 200px;
+    height: 200px;
 
 
+}
+div.container-fleximage{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 800px;
+    margin: 0px;
+}
+div.img-language{
+    display: flex;
+    justify-content: center;
+}
 
+div.button-center{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width : 100%;
 
+}
+div.modal-body{
+    background-color:gray;
+}
 
 .word {
     position: absolute;

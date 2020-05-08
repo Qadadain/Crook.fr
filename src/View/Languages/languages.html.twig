@@ -1,12 +1,16 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-<div class="container fleximage">
+<div class="container-fleximage">
     {% for language in languages %}
                 <div class="image-language">
                     <figure class="figure">
                     <a href="/language/sheets/{{ language.id }}" class="thumbnail">
+                        <div class="img-language">
                         <img src="{{ language.image }}" alt="A generic logo from {{ language.name }}" width="100px" />
-                        <figcaption class="figure-caption text-right">Voir tous les Sheets {{ language.name }}.</figcaption>
+                        </div>
+                        <div class="text-language">
+                        <figcaption class="figure-caption text-right"> Les sheets {{ language.name }}.</figcaption>
+                        </div>
                     </a>
                     </figure>
                 </div>

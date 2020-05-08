@@ -19,6 +19,7 @@
     src: local('Russo One'),
     url("../fonts/RussoOne-Regular.ttf") format('truetype');
 }
+
 h1, h2, h3, h4, h5 {
     font-family: "Russo One", sans-serif;
 }
@@ -41,9 +42,94 @@ h3 {
 }
 
 /*
-    Card
+    Home
  */
+.home-title{
+    font-size: 4.8rem;
+    color: #1b1b33;
+}
+.home-downtitle{
+    font-size: 2rem;
+}
+.home-js{
+    font-size: 1.8rem;
+}
+div.row{
+    justify-content: center;
+    height: 100%;
+    margin: 5px;
+}
 
+.card-title{
+    justify-content: center;
+    display: flex;
+}
+.card-img-top{
+    width: 200px;
+    height: 200px;
+}
+.card{
+  box-shadow: 1px 2px 2px #dad4f3;
+}
+div.container-fleximage{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 800px;
+    margin: 0px;
+}
+div.img-language{
+    display: flex;
+    justify-content: center;
+}
+
+.word {
+    position: absolute;
+    width: 220px;
+    opacity: 0;
+}
+
+.letter {
+    display: inline-block;
+    position: relative;
+    float: left;
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wisteria {
+    color: #8e44ad;
+}
+
+.belize {
+    color: #2980b9;
+}
+
+.pomegranate {
+    color: #c0392b;
+}
+
+.green {
+    color: #16a085;
+}
+
+.midnight {
+    color: #2c3e50;
+}
 
 
 /*
@@ -66,6 +152,19 @@ h3 {
 /* cell number */
 
 
+
+/*
+    modal
+ */
+.modal-title{
+    color:aliceblue;
+}
+.modal-header{
+    background-color: #1b1b33;
+}
+span.cross{
+    color:aliceblue;
+}
 
 /*
     Form

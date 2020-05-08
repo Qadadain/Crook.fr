@@ -16,7 +16,10 @@ class CardManager extends AbstractManager
     
     public function getCardPicture(): array
     {
-        $statement = $this->pdo->query("SELECT * FROM sheet INNER JOIN language WHERE sheet.language_id = language.id");
+        $statement = $this->pdo->query("SELECT * FROM sheet INNER JOIN language 
+                                                WHERE sheet.language_id = language.id 
+                                                ORDER BY created_at 
+                                                DESC LIMIT 6 ");
         return $statement->fetchAll();
     }
 }

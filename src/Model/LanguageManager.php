@@ -6,6 +6,9 @@ class LanguageManager extends AbstractManager
 {
     const TABLE = 'language';
     const MAXLIMIT = 10;
+    const BASE_COLOR = '#161630';
+    const BASE_LOGO = 'https://zupimages.net/up/20/16/3j1o.png';
+    const BASE_IS_VALID = 0;
 
     public function __construct()
     {
@@ -18,17 +21,17 @@ class LanguageManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function addNewLanguage(string $language): string
+    public function addNewLanguage(string $language): int
     {
-        $sql = 'INSERT INTO language (name, color, image, is_valid, create_at) 
+        $sql = 'INSERT INTO ' . self::TABLE . ' (name, color, image, is_valid, create_at) 
                 VALUES (:name, :color, :image, :is_valid, NOW())';
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':name', $language);
-        $statement->bindValue(':color', '#161630');
-        $statement->bindValue(':image', 'logo');
-        $statement->bindValue(':is_valid', 0);
+        $statement->bindValue(':color', self::BASE_COLOR);
+        $statement->bindValue(':image', self::BASE_LOGO);
+        $statement->bindValue(':is_valid', self::BASE_IS_VALID);
         $statement->execute();
-        return $this->pdo->lastInsertId();
+        return (int)$this->pdo->lastInsertId();
     }
 
     public function editLanguage(array $post): void
@@ -62,6 +65,14 @@ class LanguageManager extends AbstractManager
 
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':id', $id);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    public function checkLanguage($name): array
+    {
+        $statement = $this->pdo->prepare('SELECT name from language WHERE name = :name');
+        $statement->bindValue(':name', $name);
         $statement->execute();
         return $statement->fetchAll();
     }

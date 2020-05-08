@@ -2,7 +2,31 @@
 
 {% block content %}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+        <a href=""><img src="https://zupimages.net/up/20/16/bpcj.png" alt="crook logo" /></a>
+        </div>
+    </div>
 
+    <div class="text  col-12 d-flex flex-column align-items-center">
+        <h1 class="home-title"> Bienvenue sur Crook</h1>
+
+        <p class="home-downtitle">Générateur d'antisèche pour les</p>
+            <p class="home-js">
+                <span class="word wisteria">Wilder.</span>
+                <span class="word belize">Developpeur.</span>
+                <span class="word pomegranate">Geek.</span>
+                <span class="word green">Passionné.</span>
+            </p>
+        </div>
+</div>
+        <br>
+    <br>
+    <hr>
+    <div class="text-center">
+    <h2>Sheet ajouté récemment</h2>
+    </div>
     <div class="container-fluid">
         <div class="row">
             {% for sheet in sheets %}
@@ -14,7 +38,9 @@
     {# end Carousel #}
 {% endblock %}
 
-
+{% block javascript %}
+<script type="text/javascript" src="/assets/js/animationTitle.js"></script>
+{% endblock %}
 
 
 

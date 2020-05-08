@@ -1,3 +1,38 @@
 body {
-    background-color: darkcyan;
+
+    background-color: #18335c;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
+h1.text-center {
+    color: aliceblue;
+}
+a th td  {
+    color: aliceblue;
+}
+.nav-margin{
+  margin-right: 200px;
+
+}
+.fa-trash-alt {
+    cursor: pointer;
+    color: #007bff;
+}
+
+
+.fa-trash-alt:hover {
+    color: #0056b3;
+}
+
+.fa-image {
+    cursor: pointer;
+    color: #007bff;
+}
+
+.fa-image:hover {
+    color: #0056b3;
+}
+
+a:hover {
+    text-decoration: none;
+}
+

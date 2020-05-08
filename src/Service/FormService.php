@@ -29,17 +29,31 @@ class FormService
         if (isset($post['newLanguage']) && strlen($post['newLanguage']) > self::NEW_LANGUAGE_MAX_LENGHT) {
             $errors[] = 'Votre langage ne doit pas faire plus de 100 caractères';
         }
+        if (!$this->checkLanguage($post['newLanguage']) && empty($post['language'])) {
+            $errors[] = 'Votre language existe déjà';
+        }
         return $errors;
     }
 
     public function insertIntoSheet(array $post)
     {
         $newLanguage = null;
-        if (isset($post['newLanguage'])) {
+        if (isset($post['newLanguage']) && empty($post['language'])) {
             $addLanguage = new LanguageManager();
             $newLanguage = $addLanguage->addNewLanguage($post['newLanguage']);
         }
         $sheetManager = new SheetManager();
         return $sheetManager->addNewSheet($post, $newLanguage);
+    }
+
+    public function checkLanguage(string $name)
+    {
+        $result = true;
+        $languageManager = new LanguageManager();
+        $language = $languageManager->checkLanguage($name);
+        if (count($language) > 0) {
+            $result = false;
+        }
+        return $result;
     }
 }

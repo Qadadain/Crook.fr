@@ -1,7 +1,8 @@
 {% extends 'adminLayout.html.twig' %}
+{% block title %}Admin - Édition d'un langage{% endblock %}
 {% block content %}
-<section class="d-flex align-items-center">
-    <div class="container bg-dark p-5">
+<section class="d-flex align-items-center mt-5">
+    <div class="container bg-dark p-5 m-auto">
         <h2 class="text-light">Editer le langage n°{{ language.id }}</h2>
         {% for error in errors %}
             <p class="bg-danger">{{ error }}</p>

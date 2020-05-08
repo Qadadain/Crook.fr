@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Model\CardManager;
 use App\Model\SheetManager;
+use Michelf\MarkdownExtra;
 
 class HomeController extends AbstractController
 {
@@ -25,14 +26,20 @@ class HomeController extends AbstractController
     {
         $cardManager = new CardManager();
         $sheets = $cardManager->getCardPicture();
+        foreach ($sheets as $key => $sheet) {
+            $markdown = MarkdownExtra::defaultTransform($sheet['content']);
+            $sheets[$key]['content'] = $markdown;
+        }
         return $this->twig->render('Home/index.html.twig', [
             'sheets'=>$sheets,
         ]);
     }
+
     public function about()
     {
         return $this->twig->render('Home/about.html.twig');
     }
+
     public function search()
     {
 
@@ -42,8 +49,5 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/search.html.twig', [
             'sheets'=>$sheets,
         ]);
-
     }
-
-
 }

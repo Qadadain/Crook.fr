@@ -43,7 +43,13 @@ h3 {
 /*
     Card
  */
+h2{
+    text-align: center;
+}
+.row{
+    display: flex;
 
+}
 
 
 /*

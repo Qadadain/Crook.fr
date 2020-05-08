@@ -1,11 +1,20 @@
 body {
-    background-color: aliceblue;
+
+    background-color: #18335c;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+h1.text-center {
+    color: aliceblue;
+}
+a th td  {
+    color: aliceblue;
 }
 
 .fa-trash-alt {
     cursor: pointer;
     color: #007bff;
 }
+
 
 .fa-trash-alt:hover {
     color: #0056b3;
@@ -23,3 +32,4 @@ body {
 a:hover {
     text-decoration: none;
 }
+

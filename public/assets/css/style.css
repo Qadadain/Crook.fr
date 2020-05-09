@@ -48,7 +48,9 @@ body {
 h3 {
     color: aliceblue;
 }
-
+span.word{
+    width: 250px;
+}
 /*
     Home
  */

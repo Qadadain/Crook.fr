@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Model\CardManager;
+use App\Model\FavoriteManager;
 use App\Model\SheetManager;
 use Michelf\MarkdownExtra;
 
@@ -31,7 +32,7 @@ class HomeController extends AbstractController
             $sheets[$key]['content'] = $markdown;
         }
         return $this->twig->render('Home/index.html.twig', [
-            'sheets'=>$sheets,
+            'sheets' => $sheets,
         ]);
     }
 

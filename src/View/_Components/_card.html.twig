@@ -1,6 +1,11 @@
 <div class="container-fluid card-menu mb-4">
     <div class="row">
         <div class="col-8">
+            {% if session.id is defined %}
+                <div>
+                    <i class="{{ sheet.user_id == session.id ? 'fas' : 'far' }} fa-heart hearth-favorite" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}"></i>
+                </div>
+            {% endif %}
             <div class="card offset-1">
                 <img src="{{ sheet.image }}" class="card-img-top d-block mx-auto p-2" alt="{{ sheet.name }}" width="80"
                      height="280">

@@ -25,8 +25,6 @@ class LanguageController extends AbstractController
             $sheets[$key]['content'] = $markdown;
         }
 
-
-
         return $this->twig->render('Languages/sheets.html.twig', [
             'sheets' => $sheets,
 

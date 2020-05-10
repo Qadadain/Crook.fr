@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\SheetManager;
 use App\Model\UserManager;
 use App\Model\LanguageManager;
+use App\Service\FavoriteService;
 
 class AjaxController extends AbstractController
 {
@@ -61,5 +62,15 @@ class AjaxController extends AbstractController
             'languages' => $language,
             'lengthTable' => $count,
         ]);
+    }
+
+    public function ajaxAddFavorite()
+    {
+        $result = null;
+        if ($_POST['userId'] === $_SESSION['id']) {
+            $favoriteService = new FavoriteService();
+            $result = $favoriteService->checkFavorite($_POST);
+        }
+        return json_encode($result);
     }
 }

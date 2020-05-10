@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Crook - Mes favoris{% endblock %}
+{% block content %}
+    <div class="text-center">
+        <h2 class="upper">Mes Favoris</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            {% for sheet in sheets %}
+                <div class="col-md-4 card-home"> {%include '_Components/_card.html.twig' %}</div>
+            {% else %}
+                <div class="col-md-12 text-center">
+                    <p class="no-favoris">
+                        <i class="far fa-sad-tear"></i>
+                        Vous n'avez pas encore de favoris
+                        <i class="far fa-sad-tear"></i>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\FavoriteManager;
 use App\Service\UserService;
 use App\Model\UserManager;
 
@@ -52,6 +53,15 @@ class UserController extends AbstractController
         return $this->twig->render('User/user.html.twig', [
             'errors'=>$messages,
             'post'=>$_POST,
+        ]);
+    }
+
+    public function favorite()
+    {
+        $favoriteManager = new FavoriteManager();
+        $sheets = $favoriteManager->selectFavorite();
+        return $this->twig->render('User/favorite.html.twig', [
+           'sheets' => $sheets
         ]);
     }
 }

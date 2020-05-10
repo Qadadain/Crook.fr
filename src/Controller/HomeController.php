@@ -31,7 +31,7 @@ class HomeController extends AbstractController
             $sheets[$key]['content'] = $markdown;
         }
         return $this->twig->render('Home/index.html.twig', [
-            'sheets'=>$sheets,
+            'sheets' => $sheets,
         ]);
     }
 
@@ -47,7 +47,13 @@ class HomeController extends AbstractController
         $sheets = $sheetManager->getSheetByTitle($_GET['search']);
 
         return $this->twig->render('Home/search.html.twig', [
-            'sheets'=>$sheets,
+            'sheets' => $sheets,
         ]);
     }
+
+    public function error(int $error)
+    {
+        return $this->twig->render('Home/error.html.twig', ['error' => $error]);
+    }
 }
+

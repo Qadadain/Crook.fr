@@ -5,6 +5,7 @@
     src: local('Fira Code'),
     url('../fonts/FiraCode-Regular.ttf') format('truetype');
 }
+
 @font-face {
     font-family: "Fira Code";
     font-style: normal;
@@ -12,6 +13,7 @@
     src: local('Fira Code'),
     url('../fonts/FiraCode-SemiBold.ttf') format('truetype');
 }
+
 @font-face {
     font-family: "Russo One";
     font-style: normal;
@@ -24,29 +26,45 @@ h1, h2, h3, h4, h5 {
     font-family: "Russo One", sans-serif;
     text-transform: uppercase;
 }
-h2.upper{
+
+h2.upper {
     font-size: 2.5rem;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
-p.card-text{
+
+p.card-text {
     height: 96px;
+    margin: 0;
+    width: 400px;
 }
-body {
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: "Fira Code", sans-serif;
     background-color: snow;
+    overflow-x: hidden;
 }
+
+
 /*
     Navbar
  */
 p.nav-link {
     margin-bottom: 0px;
 }
+
 nav {
-    font-size: 1rem;
+    font-size: 0.9rem;
     align-content: center;
 }
+
 .form-inline input {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
 }
+
 .logo-image {
     width: 132px;
     height: 68px;
@@ -54,60 +72,77 @@ nav {
     overflow: hidden;
     margin-top: -6px;
 }
+
 h3 {
     color: aliceblue;
 }
-span.word{
+
+span.word {
     width: 300px;
 }
+
 /*
     Home
  */
-.home-title{
+.home-title {
     font-size: 4.8rem;
     color: #1b1b33;
     text-transform: uppercase;
 }
-.home-downtitle{
+
+.home-downtitle {
     font-size: 2rem;
 }
-.home-js{
+
+.home-js {
     font-size: 1.8rem;
 }
-div.row{
+
+div.row {
     justify-content: center;
     height: 100%;
     margin: 5px;
 }
 
-.card-title{
+.card-title {
     justify-content: center;
     display: flex;
 }
-.card-img-top{
-    width: 175px;
-    height: 175px;
+
+.card-img-top {
+    width: 100px;
+    height: 100px;
 }
-.card{
-  box-shadow: 1px 2px 2px #dad4f3;
-    height: 430px;
+
+.card {
+    box-shadow: 1px 2px 2px #dad4f3;
+    height: 200px;
+    margin-bottom: 50px;
 }
+
+.search-icon {
+    width: 60%;
+    text-align: center;
+}
+
 .hearth-favorite {
     color: red;
     position: relative;
     z-index: 1;
-    left: 300px;
-    top: 35px;
+    left: 368px;
+    top: 0px;
     font-size: 25px;
 }
-div.container-fleximage{
+
+div.container-fleximage {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     height: 800px;
     margin: 0px;
 }
-div.img-language{
+
+div.img-language {
     display: flex;
     justify-content: center;
 }
@@ -159,18 +194,21 @@ div.img-language{
 .midnight {
     color: #2c3e50;
 }
+
 .no-favoris {
     font-size: 4.5rem;
     margin-top: 15%;
     margin-bottom: 10%;
 }
+
 /*
     About Us
  */
-.row about-container{
+.row about-container {
     justify-content: flex-start;
 }
-.crook-logo{
+
+.crook-logo {
     align-items: self-end;
 }
 
@@ -179,23 +217,31 @@ div.img-language{
  */
 
 
-
-
 /* cell number */
-
 
 
 /*
     modal
  */
-.modal-title{
-    color:aliceblue;
+.card2 {
+    width: 60%;
+    margin-left: 20px;
 }
-.modal-header{
+
+i.fa-search-plus {
+    font-size: 35px;
+}
+
+.modal-title {
+    color: aliceblue;
+}
+
+.modal-header {
     background-color: #1b1b33;
 }
-span.cross{
-    color:aliceblue;
+
+span.cross {
+    color: aliceblue;
 }
 
 /*
@@ -207,19 +253,21 @@ span.cross{
 */
 
 
-
 /*
     Foooter
  */
+
 .footer {
     padding-top: 3px;
     width: 100%;
     height: auto;
     background-color: #343A40;
 }
+
 .col-md-2 {
     color: aliceblue;
 }
+
 h6 {
     color: aliceblue;
 }
@@ -233,50 +281,42 @@ h6 {
     height: 90%;
     border-right: grey 1px solid;
 }
+
 .image-language {
-width: 250px;
+    width: 250px;
     height: 300px;
     padding: 50px;
 }
+
 .fleximage {
     display: flex;
     text-align: center;
 }
+
 @media (max-width: 576px) {
 
     /*
         Navbar
      */
-
-
-
     /*
         Card
      */
-
-
     /*
     About Us
      */
-
-
-
     /*
         Carousel
      */
-
-
-
     /*
         Form
      */
-
     /*
         Login
      */
     .register-border {
         display: none;
     }
+
     .login-mobile {
         margin-bottom: 50px;
     }
@@ -287,21 +327,12 @@ width: 250px;
     /*
         Navbar
      */
-
-
-
     /*
         Card
      */
-
-
-
     /*
         Carousel
      */
-
-
-
     /*
         Form
      */
@@ -313,21 +344,12 @@ width: 250px;
     /*
         Navbar
      */
-
-
-
     /*
         Card
      */
-
-
-
     /*
         Carousel
      */
-
-
-
     /*
         Form
      */
@@ -339,21 +361,12 @@ width: 250px;
     /*
         Navbar
      */
-
-
-
     /*
         Card
      */
-
-
-
     /*
         Carousel
      */
-
-
-
     /*
         Form
      */

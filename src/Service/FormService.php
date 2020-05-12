@@ -9,7 +9,7 @@ class FormService
 {
     const TITLE_LENGHT = 80;
     const DESCRIPTION_MIN_LENGHT = 5;
-    const DESCRIPTION_MAX_LENGHT = 250;
+    const DESCRIPTION_MAX_LENGHT = 50;
     const CONTENT_MIN_LENGHT = 5;
     const NEW_LANGUAGE_MAX_LENGHT = 100;
 

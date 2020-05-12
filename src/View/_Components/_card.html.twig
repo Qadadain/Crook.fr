@@ -1,30 +1,28 @@
-<div class="container-fluid card-menu mb-4">
-    <div class="row">
-        <div class="col-8">
-            {% if session.id is defined %}
-                <div>
-                    <i class="{{ sheet.user_id == session.id ? 'fas' : 'far' }} fa-heart hearth-favorite" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}"></i>
-                </div>
-            {% endif %}
-            <div class="card offset-1">
-                <img src="{{ sheet.image }}" class="card-img-top d-block mx-auto p-2" alt="{{ sheet.name }}" width="80"
-                     height="280">
-                <div class="card-body">
-                    <h5 class="card-title">{{ sheet.title }}</h5>
-                    <p class="card-text text-center">{{ sheet.description|slice(0,50) }} [...]</p>
-                    <!-- Button trigger modal -->
-                    <div class="text-center">
-                    <button type="button" class="btn btn-primary"
-                            data-toggle="modal" data-target="#cardModal{{ loop.index }}">
-                        Voir le sheet
-                    </button>
-                    </div>
-                </div>
-            </div>
+<div class="card offset-1 d-flex justify-content-center">
+    {% if session.id is defined %}
+
+        <i class="{{ sheet.user_id == session.id ? 'fas' : 'far' }} fa-heart hearth-favorite"
+           data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}"></i>
+
+    {% endif %}
+    <div class="d-flex">
+        <div class="card2">
+            <h5 class="card-title">{{ sheet.title }}</h5>
+            <p class="text-left">{{ sheet.description }}</p>
+        </div>
+        <div>
+            <img src="{{ sheet.image }}" class="card-img-top d-block mx-auto p-2" alt="{{ sheet.name }}" width="80"
+                 height="280">
         </div>
     </div>
+    <div class="search-icon">
+        <i class="fas fa-search-plus" data-toggle="modal" style="color:{{ sheet.color }}"
+           data-target="#cardModal{{ loop.index }}"></i>
+    </div>
 </div>
+
 <!-- Modal -->
+<!--data-toggle="modal" data-target="#cardModal{{ loop.index }}"> -->
 <div class="modal fade" id="cardModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content ">

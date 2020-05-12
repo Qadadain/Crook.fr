@@ -34,7 +34,7 @@ $(() => {
             url: "/ajax/ajaxchangesheet/" + limit,
             timeout: 3000,
             dataType: 'html',
-            success: (data) => {;
+            success: (data) => {
                 $("#sheetTable").html(data);
                 limit = Number(limit) - incrementLimit;
                 if ($('#previous').val() - incrementLimit < 0) {

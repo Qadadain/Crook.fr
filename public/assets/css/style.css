@@ -132,6 +132,20 @@ div.row {
     left: 368px;
     top: 0px;
     font-size: 25px;
+    width: 10%;
+}
+.vote {
+    position: relative;
+    z-index: 1;
+    left: 15px;
+    top: -20px;
+    width: 5%;
+}
+.fa-chevron-up {
+    cursor: pointer;
+}
+.fa-chevron-down {
+    cursor: pointer;
 }
 
 div.container-fleximage {

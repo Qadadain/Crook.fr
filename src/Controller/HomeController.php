@@ -55,4 +55,3 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/error.html.twig', ['error' => $error]);
     }
 }
-

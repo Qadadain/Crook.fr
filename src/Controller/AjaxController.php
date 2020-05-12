@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Model\PopularityManager;
 use App\Model\SheetManager;
 use App\Model\UserManager;
 use App\Model\LanguageManager;
 use App\Service\FavoriteService;
+use App\Service\UserService;
+use App\Service\PopularityService;
 
 class AjaxController extends AbstractController
 {
@@ -67,10 +70,26 @@ class AjaxController extends AbstractController
     public function ajaxAddFavorite()
     {
         $result = null;
-        if ($_POST['userId'] === $_SESSION['id']) {
+        if (UserService::isSameUser($_POST['userId'])) {
             $favoriteService = new FavoriteService();
             $result = $favoriteService->checkFavorite($_POST);
         }
         return json_encode($result);
+    }
+
+    public function ajaxVote()
+    {
+        if (PopularityService::checkData($_POST)) {
+            if (UserService::isSameUser($_POST['userId'])) {
+                $popularityManager = new PopularityManager();
+                $isVote = $popularityManager->getPopularityById($_POST);
+                if (is_array($isVote)) {
+                    $popularityManager->updatePopularity($_POST['value'], $isVote['id']);
+                } else {
+                    $popularityManager->insertPopularity($_POST);
+                }
+                return json_encode($popularityManager->sumPopularity($_POST['sheetId']));
+            }
+        }
     }
 }

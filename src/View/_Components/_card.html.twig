@@ -1,12 +1,19 @@
 <div class="container-fluid card-menu mb-4">
     <div class="row">
         <div class="col-8">
-            {% if session.id is defined %}
-                <div>
-                    <i class="{{ sheet.user_id == session.id ? 'fas' : 'far' }} fa-heart hearth-favorite" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}"></i>
-                </div>
-            {% endif %}
             <div class="card offset-1">
+                {% if session.id is defined %}
+                        <i class="{{ sheet.user_id == session.id ? 'fas' : 'far' }} fa-heart hearth-favorite" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}"></i>
+                {% endif %}
+                <span class="d-flex align-items-center vote">
+                    {% if session.id is defined %}
+                    <span class="d-flex flex-column">
+                        <i class="fas fa-chevron-up chevron" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}" data-value="1"></i>
+                        <i class="fas fa-chevron-down chevron" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}" data-value="-1"></i>
+                    </span>
+                    {% endif %}
+                    <p class="ml-2 mb-0 " id="totalVote-{{ sheet.id }}">{{ sheet.popularity ?? 0 }}</p>
+                </span>
                 <img src="{{ sheet.image }}" class="card-img-top d-block mx-auto p-2" alt="{{ sheet.name }}" width="80"
                      height="280">
                 <div class="card-body">

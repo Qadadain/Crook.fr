@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Model\CardManager;
 use App\Model\FavoriteManager;
 use App\Model\SheetManager;
+use App\Service\SheetService;
 use Michelf\MarkdownExtra;
 
 class HomeController extends AbstractController
@@ -27,10 +28,7 @@ class HomeController extends AbstractController
     {
         $cardManager = new CardManager();
         $sheets = $cardManager->getCardPicture();
-        foreach ($sheets as $key => $sheet) {
-            $markdown = MarkdownExtra::defaultTransform($sheet['content']);
-            $sheets[$key]['content'] = $markdown;
-        }
+        $sheets = SheetService::convertIntoMarkDown($sheets);
         return $this->twig->render('Home/index.html.twig', [
             'sheets' => $sheets,
         ]);
@@ -57,4 +55,3 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/error.html.twig', ['error' => $error]);
     }
 }
-

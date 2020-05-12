@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Model\LanguageManager;
+use App\Service\SheetService;
 use Michelf\MarkdownExtra;
 
 class LanguageController extends AbstractController
@@ -20,10 +21,7 @@ class LanguageController extends AbstractController
     {
         $languageManager = new LanguageManager();
         $sheets = $languageManager->getSheetByLanguage($id);
-        foreach ($sheets as $key => $sheet) {
-            $markdown = MarkdownExtra::defaultTransform($sheet['content']);
-            $sheets[$key]['content'] = $markdown;
-        }
+        $sheets = SheetService::convertIntoMarkDown($sheets);
 
         return $this->twig->render('Languages/sheets.html.twig', [
             'sheets' => $sheets,

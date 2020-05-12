@@ -37,7 +37,16 @@ body {
 /*
     Navbar
  */
-
+p.nav-link {
+    margin-bottom: 0px;
+}
+nav {
+    font-size: 1rem;
+    align-content: center;
+}
+.form-inline input {
+    font-size: 0.7rem;
+}
 .logo-image {
     width: 132px;
     height: 68px;
@@ -49,7 +58,7 @@ h3 {
     color: aliceblue;
 }
 span.word{
-    width: 250px;
+    width: 300px;
 }
 /*
     Home

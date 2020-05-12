@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Model\FavoriteManager;
+use App\Service\SheetService;
 use App\Service\UserService;
 use App\Model\UserManager;
+use Michelf\MarkdownExtra;
 
 class UserController extends AbstractController
 {
@@ -32,7 +34,10 @@ class UserController extends AbstractController
                 $_SESSION['role_user'] = $userData['role_user'];
                 header('Location: /');
             } else {
-                header('Location: /user/signin');
+                $error = 'Mauvais mot de passe ou adresse email';
+                return $this->twig->render('User/user.html.twig', [
+                    'error' => $error,
+                ]);
             }
         }
     }
@@ -60,6 +65,7 @@ class UserController extends AbstractController
     {
         $favoriteManager = new FavoriteManager();
         $sheets = $favoriteManager->selectFavorite();
+        $sheets = SheetService::convertIntoMarkDown($sheets);
         return $this->twig->render('User/favorite.html.twig', [
            'sheets' => $sheets
         ]);

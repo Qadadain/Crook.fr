@@ -38,9 +38,11 @@ p.card-text {
     margin: 0;
     width: 400px;
 }
-.figure-caption{
+
+.figure-caption {
     width: 200px;
 }
+
 html, body {
     width: 100%;
     margin: 0;
@@ -108,6 +110,12 @@ div.row {
     margin: 5px;
 }
 
+.vote-favored {
+    position: relative;
+    z-index: 1;
+    top: 5px;
+}
+
 .card-title {
     justify-content: center;
     display: flex;
@@ -120,7 +128,7 @@ div.row {
 
 .card {
     box-shadow: 1px 2px 2px #dad4f3;
-    height: 220px;
+    height: 245px;
     margin-bottom: 50px;
 }
 
@@ -133,13 +141,10 @@ div.row {
 
 .hearth-favorite {
     color: red;
-    position: relative;
-    z-index: 1;
-    left: 0px;
-    top: 5px;
     font-size: 25px;
     width: 10%;
 }
+
 .vote {
     position: relative;
     z-index: 1;
@@ -147,20 +152,25 @@ div.row {
     top: -20px;
     width: 5%;
 }
+
 .vote-up {
-    color : green;
+    color: green;
 }
+
 .vote-down {
     color: #c0392b;
 }
+
 .fa-chevron-up {
     cursor: pointer;
     font-size: 20px;
 }
+
 .fa-chevron-down {
     cursor: pointer;
     font-size: 20px;
 }
+
 div.container-fleximage {
     display: flex;
     flex-wrap: wrap;
@@ -325,6 +335,15 @@ h6 {
     /*
         Card
      */
+    .container-fluid {
+        padding: 0;
+    }
+.card-home {
+    padding: 0;
+}
+.card{
+    margin-left: 0;
+}
     /*
     About Us
      */
@@ -346,7 +365,7 @@ h6 {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
 
     /*
         Navbar
@@ -354,6 +373,7 @@ h6 {
     /*
         Card
      */
+
     /*
         Carousel
      */
@@ -380,7 +400,7 @@ h6 {
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
 
     /*
         Navbar
@@ -388,7 +408,20 @@ h6 {
     /*
         Card
      */
+    .mobile-description {
+        display: none;
+    }
+
+    .home-title {
+        font-size: 2.8rem;
+    }
+
+    .mobile-downtitle {
+        display: none;
+    }
+
     /*
+
         Carousel
      */
     /*

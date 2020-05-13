@@ -7,7 +7,7 @@ class LanguageManager extends AbstractManager
     const TABLE = 'language';
     const MAXLIMIT = 10;
     const BASE_COLOR = '#161630';
-    const BASE_LOGO = 'https://zupimages.net/up/20/16/3j1o.png';
+    const BASE_LOGO = '/assets/image/Crook_.png';
     const BASE_IS_VALID = 0;
 
     public function __construct()

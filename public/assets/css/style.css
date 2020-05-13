@@ -120,13 +120,15 @@ div.row {
 
 .card {
     box-shadow: 1px 2px 2px #dad4f3;
-    height: 200px;
+    height: 220px;
     margin-bottom: 50px;
 }
 
 .search-icon {
     width: 60%;
     text-align: center;
+    margin-top: 1%;
+    margin-bottom: 4%;
 }
 
 .hearth-favorite {

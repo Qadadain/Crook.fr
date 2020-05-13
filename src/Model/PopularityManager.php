@@ -48,7 +48,7 @@ class PopularityManager extends AbstractManager
         $statement->execute();
     }
 
-    public function updatePopularity(string $value, string $id)
+    public function updatePopularity(string $value, string $id): void
     {
         $sql = 'UPDATE popularity
                 SET vote = :vote

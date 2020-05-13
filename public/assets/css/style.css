@@ -175,7 +175,6 @@ div.container-fleximage {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 800px;
     margin: 0px;
 }
 
@@ -249,9 +248,10 @@ div.img-language {
     align-items: self-end;
 }
 
-/*
-    Carousel
- */
+.no-language {
+    font-size: 2rem;
+    margin: 10% auto;
+}
 
 
 /* cell number */
@@ -267,6 +267,7 @@ div.img-language {
 
 i.fa-search-plus {
     font-size: 35px;
+    cursor: pointer;
 }
 
 .modal-title {
@@ -316,34 +317,30 @@ h6 {
     border-right: grey 1px solid;
 }
 
-.image-language {
-    width: 250px;
-    height: 300px;
-    padding: 50px;
-}
-
 .fleximage {
     display: flex;
     text-align: center;
 }
-
 @media (max-width: 576px) {
 
     /*
         Navbar
      */
+    .home-title {
+        text-align: center;
+    }
     /*
         Card
      */
     .container-fluid {
         padding: 0;
     }
-.card-home {
-    padding: 0;
-}
-.card{
-    margin-left: 0;
-}
+    .card-home {
+        padding: 0;
+    }
+    .card{
+        margin-left: 0;
+    }
     /*
     About Us
      */

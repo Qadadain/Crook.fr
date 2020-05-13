@@ -10,13 +10,13 @@ use Michelf\MarkdownExtra;
 
 class UserController extends AbstractController
 {
-    public function signIn()
+    public function signIn(): string
     {
         return $this->twig->render('User/user.html.twig', [
         ]);
     }
 
-    public function login()
+    public function login(): string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userManager = new UserManager();
@@ -48,12 +48,12 @@ class UserController extends AbstractController
         header("Location: /");
     }
 
-    public function register()
+    public function register(): string
     {
-        $messages =[];
+        $messages = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $userService = new UserService();
-                $messages = $userService->validateFormUser($_POST);
+            $userService = new UserService();
+            $messages = $userService->validateFormUser($_POST);
         }
         return $this->twig->render('User/user.html.twig', [
             'errors'=>$messages,
@@ -61,7 +61,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    public function favorite()
+    public function favorite(): string
     {
         $favoriteManager = new FavoriteManager();
         $sheets = $favoriteManager->selectFavorite();

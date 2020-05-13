@@ -6,7 +6,7 @@ namespace App\Controller;
 use App\Model\LanguageManager;
 use App\Service\FormService;
 
-class FormController extends AbstractController
+class SheetController extends AbstractController
 {
     /**
      * Display home page
@@ -16,7 +16,7 @@ class FormController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add()
+    public function add(): string
     {
 
         if (!empty($_POST)) {
@@ -24,6 +24,7 @@ class FormController extends AbstractController
             $errors = $formService->validateForm($_POST);
             if (empty($errors)) {
                 $formService->insertIntoSheet($_POST);
+                header('Location: /');
             }
         }
         $languageManager = new LanguageManager();

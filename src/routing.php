@@ -21,7 +21,7 @@ if (class_exists($controller) && method_exists(new $controller(), $method)) {
             exit();
         }
     }
-    if ($controller === 'App\Controller\FormController' && empty($_SESSION['role_user'])) {
+    if ($controller === 'App\Controller\SheetController' && empty($_SESSION['role_user'])) {
         header('Location: /user/signIN');
         exit();
     }

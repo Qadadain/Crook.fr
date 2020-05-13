@@ -8,11 +8,8 @@
 
 namespace App\Controller;
 
-use App\Model\CardManager;
-use App\Model\FavoriteManager;
 use App\Model\SheetManager;
 use App\Service\SheetService;
-use Michelf\MarkdownExtra;
 
 class HomeController extends AbstractController
 {
@@ -24,22 +21,22 @@ class HomeController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index()
+    public function index(): string
     {
-        $cardManager = new CardManager();
-        $sheets = $cardManager->getCardPicture();
+        $sheetManager = new SheetManager();
+        $sheets = $sheetManager->getCardPicture();
         $sheets = SheetService::convertIntoMarkDown($sheets);
         return $this->twig->render('Home/index.html.twig', [
             'sheets' => $sheets,
         ]);
     }
 
-    public function about()
+    public function about(): string
     {
         return $this->twig->render('Home/about.html.twig');
     }
 
-    public function search()
+    public function search(): string
     {
 
         $sheetManager = new SheetManager();
@@ -50,7 +47,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function error(int $error)
+    public function error(int $error): string
     {
         return $this->twig->render('Home/error.html.twig', ['error' => $error]);
     }

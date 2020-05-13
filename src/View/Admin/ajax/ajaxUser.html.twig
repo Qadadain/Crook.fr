@@ -8,13 +8,11 @@
         <td>{{ user.update_at }}</td>
         <td>{{ user.role_user == 'ROLE_USER' ? 'Membre' : 'Administrateur' }}</td>
         <td>
-            <a href="user/{{ user.id }}">
+            <a href="/admin/edituser/{{ user.id }}">
                 <i class="far fa-edit"></i>
             </a>
             /
-            <a href="deleteUser/{{ user.id }}">
-                <i class="fas fa-trash-alt"></i>
-            </a>
+            <i class="fas fa-trash-alt trash-user" data-id="{{ user.id }}"></i>
         </td>
     </tr>
 {% endfor %}

@@ -7,8 +7,9 @@ class LanguageManager extends AbstractManager
     const TABLE = 'language';
     const MAXLIMIT = 10;
     const BASE_COLOR = '#161630';
-    const BASE_LOGO = 'https://zupimages.net/up/20/16/3j1o.png';
+    const BASE_LOGO = '/assets/images/Crook_.png';
     const BASE_IS_VALID = 0;
+    const IS_VALID = 1;
 
     public function __construct()
     {
@@ -18,6 +19,13 @@ class LanguageManager extends AbstractManager
     public function getLanguageName(): array
     {
         $statement = $this->pdo->query('SELECT name, id FROM language');
+        return $statement->fetchAll();
+    }
+
+    public function selectAllValid(): array
+    {
+        $sql = 'SELECT * from language WHERE is_valid = 1';
+        $statement = $this->pdo->query($sql);
         return $statement->fetchAll();
     }
 
@@ -58,16 +66,51 @@ class LanguageManager extends AbstractManager
     public function getSheetByLanguage(int $id): array
     {
         $sql = 'SELECT s.id, s.title, s.description, s.content, 
-                s.created_at, u.pseudo, l.name, l.image, f.user_id 
-            FROM sheet s 
-            JOIN user u ON s.user_id = u.id
-            JOIN language l ON s.language_id = l.id
-            LEFT JOIN favorite f
-            ON s.id = f.sheet_id
-            WHERE l.id = :id;';
+                    l.name, l.color, l.image, s.created_at,
+                    (SELECT SUM(p.vote) FROM popularity p WHERE p.sheet_id = s.id) popularity';
+        if (isset($_SESSION['id'])) {
+            $sql .= ', (SELECT f.user_id 
+                      FROM favorite f 
+                      WHERE f.sheet_id = s.id 
+                      AND f.user_id = ' . $_SESSION['id'] .') favoris,
+                      (SELECT p.vote
+                      FROM popularity p 
+                      WHERE p.sheet_id = s.id 
+                      AND p.user_id = '. $_SESSION['id'] . ') vote';
+        }
+        $sql .= ' FROM sheet s
+                 JOIN language l
+                 ON s.language_id = l.id
+                 WHERE l.id = :id
+                 AND l.is_valid = ' . self::IS_VALID .'
+                 ORDER BY s.created_at DESC';
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':id', $id);
         $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    public function getNoValidLanguage(): array
+    {
+        $sql = 'SELECT s.id, s.title, s.description, s.content, 
+                    l.name, l.color, l.image, s.created_at,
+                    (SELECT SUM(p.vote) FROM popularity p WHERE p.sheet_id = s.id) popularity';
+        if (isset($_SESSION['id'])) {
+            $sql .= ', (SELECT f.user_id 
+                      FROM favorite f 
+                      WHERE f.sheet_id = s.id 
+                      AND f.user_id = ' . $_SESSION['id'] .') favoris,
+                      (SELECT p.vote
+                      FROM popularity p 
+                      WHERE p.sheet_id = s.id 
+                      AND p.user_id = '. $_SESSION['id'] . ') vote';
+        }
+        $sql .= ' FROM sheet s
+                 JOIN language l
+                 ON s.language_id = l.id
+                 WHERE l.is_valid = ' . self::BASE_IS_VALID . '
+                 ORDER BY s.created_at DESC';
+        $statement = $this->pdo->query($sql);
         return $statement->fetchAll();
     }
 

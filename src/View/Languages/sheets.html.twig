@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
+    {% if sheets is not empty %}
     <div class="container-fluid">
         <div class="row">
             {% for sheet in sheets %}
@@ -7,4 +8,15 @@
             {% endfor %}
         </div>
     </div>
+    {% else %}
+    <div class="container-fluid no-language">
+        <div class="row">
+            <p>
+                <i class="far fa-smile-wink"></i>
+                Les administrateurs ont fait leur travail et ont rangé tous les sheets
+                <i class="far fa-smile-wink"></i>
+            </p>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}

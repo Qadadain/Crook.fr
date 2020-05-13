@@ -38,7 +38,9 @@ p.card-text {
     margin: 0;
     width: 400px;
 }
-
+.figure-caption{
+    width: 200px;
+}
 html, body {
     width: 100%;
     margin: 0;
@@ -93,6 +95,7 @@ span.word {
 
 .home-downtitle {
     font-size: 2rem;
+    white-space: nowrap;
 }
 
 .home-js {

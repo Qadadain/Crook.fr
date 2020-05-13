@@ -59,6 +59,7 @@ p.nav-link {
 nav {
     font-size: 0.9rem;
     align-content: center;
+    margin-bottom: 50px;
 }
 
 .form-inline input {
@@ -129,8 +130,8 @@ div.row {
     color: red;
     position: relative;
     z-index: 1;
-    left: 368px;
-    top: 0px;
+    left: 0px;
+    top: 5px;
     font-size: 25px;
     width: 10%;
 }
@@ -141,13 +142,20 @@ div.row {
     top: -20px;
     width: 5%;
 }
+.vote-up {
+    color : green;
+}
+.vote-down {
+    color: #c0392b;
+}
 .fa-chevron-up {
     cursor: pointer;
+    font-size: 20px;
 }
 .fa-chevron-down {
     cursor: pointer;
+    font-size: 20px;
 }
-
 div.container-fleximage {
     display: flex;
     flex-wrap: wrap;
@@ -163,7 +171,7 @@ div.img-language {
 
 .word {
     position: absolute;
-    width: 220px;
+    width: 300px;
     opacity: 0;
 }
 

@@ -58,4 +58,13 @@ class UserService
             return $userManager;
         }
     }
+
+    public static function isSameUser(string $id): bool
+    {
+        $result = false;
+        if ($id === $_SESSION['id']) {
+            $result = true;
+        }
+        return $result;
+    }
 }

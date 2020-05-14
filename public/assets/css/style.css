@@ -5,6 +5,7 @@
     src: local('Fira Code'),
     url('../fonts/FiraCode-Regular.ttf') format('truetype');
 }
+
 @font-face {
     font-family: "Fira Code";
     font-style: normal;
@@ -12,6 +13,7 @@
     src: local('Fira Code'),
     url('../fonts/FiraCode-SemiBold.ttf') format('truetype');
 }
+
 @font-face {
     font-family: "Russo One";
     font-style: normal;
@@ -19,15 +21,54 @@
     src: local('Russo One'),
     url("../fonts/RussoOne-Regular.ttf") format('truetype');
 }
+
 h1, h2, h3, h4, h5 {
     font-family: "Russo One", sans-serif;
+    text-transform: uppercase;
 }
-body {
+
+h2.upper {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+p.card-text {
+    height: 96px;
+    margin: 0;
+    width: 400px;
+}
+
+.figure-caption {
+    width: 200px;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: "Fira Code", sans-serif;
+    background-color: snow;
+    overflow-x: hidden;
 }
+
+
 /*
     Navbar
  */
+p.nav-link {
+    margin-bottom: 0px;
+}
+
+nav {
+    font-size: 0.9rem;
+    align-content: center;
+    margin-bottom: 50px;
+}
+
+.form-inline input {
+    font-size: 0.9rem;
+}
 
 .logo-image {
     width: 132px;
@@ -36,56 +77,235 @@ body {
     overflow: hidden;
     margin-top: -6px;
 }
+
 h3 {
     color: aliceblue;
 }
 
+span.word {
+    width: 300px;
+}
+
 /*
-    Card
+    Home
  */
+.home-title {
+    font-size: 4.8rem;
+    color: #1b1b33;
+    text-transform: uppercase;
+}
 
+.home-downtitle {
+    font-size: 2rem;
+    white-space: nowrap;
+}
 
+.home-js {
+    font-size: 1.8rem;
+}
+
+div.row {
+    justify-content: center;
+    height: 100%;
+    margin: 5px;
+}
+
+.vote-favored {
+    position: relative;
+    z-index: 1;
+    top: 5px;
+}
+
+.card-title {
+    justify-content: center;
+    display: flex;
+}
+
+.card-img-top {
+    width: 100px;
+    height: 100px;
+}
+
+.card {
+    box-shadow: 1px 2px 2px #dad4f3;
+    height: 245px;
+    margin-bottom: 50px;
+}
+
+.search-icon {
+    width: 60%;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 4%;
+}
+
+.hearth-favorite {
+    color: red;
+    font-size: 25px;
+    width: 10%;
+}
+
+.vote {
+    position: relative;
+    z-index: 1;
+    left: 15px;
+    top: -20px;
+    width: 5%;
+}
+
+.vote-up {
+    color: green;
+}
+
+.vote-down {
+    color: #c0392b;
+}
+
+.fa-chevron-up {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fa-chevron-down {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+div.container-fleximage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px;
+}
+
+div.img-language {
+    display: flex;
+    justify-content: center;
+}
+
+.word {
+    position: absolute;
+    width: 300px;
+    opacity: 0;
+}
+
+.letter {
+    display: inline-block;
+    position: relative;
+    float: left;
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wisteria {
+    color: #8e44ad;
+}
+
+.belize {
+    color: #2980b9;
+}
+
+.pomegranate {
+    color: #c0392b;
+}
+
+.green {
+    color: #16a085;
+}
+
+.midnight {
+    color: #2c3e50;
+}
+
+.no-favoris {
+    font-size: 4.5rem;
+    margin-top: 15%;
+    margin-bottom: 10%;
+}
 
 /*
     About Us
  */
-.row about-container{
+.row about-container {
     justify-content: flex-start;
 }
-.crook-logo{
+
+.crook-logo {
     align-items: self-end;
 }
 
-/*
-    Carousel
- */
-
-
+.no-language {
+    font-size: 2rem;
+    margin: 10% auto;
+}
 
 
 /* cell number */
 
 
+/*
+    modal
+ */
+.card2 {
+    width: 60%;
+    margin-left: 20px;
+}
+
+i.fa-search-plus {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.modal-title {
+    color: aliceblue;
+}
+
+.modal-header {
+    background-color: #1b1b33;
+}
+
+span.cross {
+    color: aliceblue;
+}
 
 /*
     Form
  */
 
+
 /*
     Foooter
  */
+
 .footer {
     padding-top: 3px;
     width: 100%;
     height: auto;
     background-color: #343A40;
 }
+
 .col-md-2 {
     color: aliceblue;
 }
+
 h6 {
     color: aliceblue;
 }
+
 
 /*
     login
@@ -96,11 +316,7 @@ h6 {
     height: 90%;
     border-right: grey 1px solid;
 }
-.image-language {
-width: 400px;
-    height: 300px;
-    padding: 50px;
-}
+
 .fleximage {
     display: flex;
     text-align: center;
@@ -110,61 +326,54 @@ width: 400px;
     /*
         Navbar
      */
-
-
-
+    .home-title {
+        text-align: center;
+    }
     /*
         Card
      */
-
-
+    .container-fluid {
+        padding: 0;
+    }
+    .card-home {
+        padding: 0;
+    }
+    .card{
+        margin-left: 0;
+    }
     /*
     About Us
      */
-
-
-
     /*
         Carousel
      */
-
-
-
     /*
         Form
      */
-
     /*
         Login
      */
     .register-border {
         display: none;
     }
+
     .login-mobile {
         margin-bottom: 50px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
 
     /*
         Navbar
      */
-
-
-
     /*
         Card
      */
 
-
-
     /*
         Carousel
      */
-
-
-
     /*
         Form
      */
@@ -176,47 +385,42 @@ width: 400px;
     /*
         Navbar
      */
-
-
-
     /*
         Card
      */
-
-
-
     /*
         Carousel
      */
-
-
-
     /*
         Form
      */
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
 
     /*
         Navbar
      */
-
-
-
     /*
         Card
      */
+    .mobile-description {
+        display: none;
+    }
 
+    .home-title {
+        font-size: 2.8rem;
+    }
 
+    .mobile-downtitle {
+        display: none;
+    }
 
     /*
+
         Carousel
      */
-
-
-
     /*
         Form
      */

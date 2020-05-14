@@ -21,13 +21,13 @@ if (class_exists($controller) && method_exists(new $controller(), $method)) {
             exit();
         }
     }
-    if ($controller === 'App\Controller\FormController' && empty($_SESSION['role_user'])) {
+    if ($controller === 'App\Controller\SheetController' && empty($_SESSION['role_user'])) {
         header('Location: /user/signIN');
         exit();
     }
     echo call_user_func_array([new $controller(), $method], $vars);
 } else {
-    header("HTTP/1.0 404 Not Found");
-    echo '404 - Page not found';
+    header('HTTP/1.0 404 Not Found');
+    echo call_user_func_array([new App\Controller\HomeController(), 'error'], [404]);
     exit();
 }

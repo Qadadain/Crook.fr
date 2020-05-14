@@ -6,44 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://kit.fontawesome.com/c8a8d1abbe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/dracula.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     {% block stylesheet %}{% endblock %}
     <link rel="icon" href="/assets/images/favicon.png">
 </head>
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-    <a class="navbar-brand" href="">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
         <div class="logo-image">
             <img src="https://zupimages.net/up/20/16/3j1o.png" class="img-fluid">
         </div>
     </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Acceuil<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/home/about">À propos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Language/list">Langages</a>
-                </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Acceuil<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/about">À propos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Language/list">Langages</a>
+            </li>
             {% if session.pseudo %}
                 <li class="nav-item">
                     <p class="nav-link">Bonjour {{ session.pseudo }} !</p>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/form/add">Créer un sheet</a>
+                    <a class="nav-link" href="/sheet/add">Créer un sheet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/favorite">Mes favoris</a>
                 </li>
                 {% if session.role_user is same as('ROLE_ADMIN') %}
                     <li class="nav-item">
@@ -60,8 +66,8 @@
             {% endif %}
         </ul>
 
-        <form  action="/home/search/" class="form-inline my-2 my-lg-0">
-            <input  name="search" class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+        <form action="/home/search/" class="form-inline menu my-2 my-lg-0">
+            <input name="search" class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
             <button type="submit" class="btn btn-dark">Recherche</button>
 
         </form>
@@ -89,7 +95,7 @@
         <!-- Content -->
         <h6 class="text-uppercase font-weight-bold">Crook</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Fournisseur officiel de sheet pour développeurs et développeuses.</p>
+        <p>Fournisseur officiel de sheets pour développeurs et développeuses.</p>
 
       </div>
         <!-- Grid column -->
@@ -101,16 +107,16 @@
         <h6 class="text-uppercase font-weight-bold">Langages</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto">
         <p>
-          <a href="#!">PHP</a>
+          <a href="/language/sheets/2">PHP</a>
         </p>
         <p>
-          <a href="#!">JAVA</a>
+          <a href="/language/sheets/3">JAVA</a>
         </p>
         <p>
-          <a href="#!">Javascript</a>
+          <a href="/language/sheets/1">Javascript</a>
         </p>
         <p>
-          <a href="#!">Autre langages</a>
+          <a href="/Language/list">Autre langages</a>
         </p>
 
       </div>
@@ -123,14 +129,9 @@
         <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto">
         <p>
-          <a href="#!">Votre compte</a>
+          <a href="/user/signin">Devenir membre </a>
         </p>
-        <p>
-          <a href="#!">Devenir membre </a>
-        </p>
-        <p>
-          <a href="#!">FAQ</a>
-        </p>
+
 
       </div>
         <!-- Grid column -->
@@ -156,18 +157,23 @@
             <!-- Footer Links -->
 
             <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-  </div>
+            <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+Made with <i class="icon ion-heart"></i> by Wilders
 
         </span>
     </div>
 
 </footer>
 {#  End FOOTER #}
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="/assets/js/ajaxFavorite.js"></script>
+<script src="/assets/js/scriptVote.js"></script>
 {% block javascript %}{% endblock %}
 </body>
 </html>

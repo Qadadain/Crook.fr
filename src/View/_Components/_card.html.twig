@@ -1,26 +1,51 @@
-<div class="card" style="width: 18rem;">
-    <img src="{{ sheet.image }}" class="card-img-top d-block mx-auto p-2" alt="{{ sheet.name }}" width="80" height="280">
-    <div class="card-body">
-        <h5 class="card-title">{{ sheet.title }}</h5>
-        <p class="card-text">{{ sheet.description }}</p>
-        <!-- Button trigger modal -->
-        <button type="button" style="background-color: {{ sheet.color }}" class="btn btn-primary" data-toggle="modal" data-target="#cardModal{{ loop.index }}">
-            Voir le sheet
-        </button>
+<div class="card offset-1 d-flex justify-content-center">
+    <div class="row mt-4">
+        <span class="col-6 d-flex">
+        {% if session.id is defined %}
+            <span class="d-flex flex-column">
+              <i class="fas fa-chevron-up chevron {{ sheet.vote == '1' ? 'vote-up' : '' }}" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}" data-value="1"></i>
+              <i class="fas fa-chevron-down chevron {{ sheet.vote == '-1' ? 'vote-down' : '' }}" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}" data-value="-1"></i>
+          </span>
+        {% endif %}
+            <p class="ml-2 mb-0 " id="totalVote-{{ sheet.id }}">{{ sheet.popularity ?? 0 }}</p>
+        </span>
+        {% if session.id is defined %}
+        <span class="col-6 text-right">
+            <i class="{{ sheet.favoris == session.id ? 'fas' : 'far' }} fa-heart hearth-favorite"
+               data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}"></i>
+        </span>
+        {% endif %}
+    </div>
+    <div class="d-flex justify-content-around">
+        <div class="card2">
+            <h5 class="card-title">{{ sheet.title }}</h5>
+            <p class="text-left mobile-description">{{ sheet.description }}</p>
+        </div>
+        <div>
+            <img src="{{ sheet.image }}" class="card-img-top d-block mx-auto p-2" alt="{{ sheet.name }}">
+        </div>
+    </div>
+    <div class="search-icon">
+        <i class="fas fa-search-plus" data-toggle="modal" style="color:{{ sheet.color }}"
+           data-target="#cardModal{{ loop.index }}"></i>
     </div>
 </div>
+
 <!-- Modal -->
+<!--data-toggle="modal" data-target="#cardModal{{ loop.index }}"> -->
 <div class="modal fade" id="cardModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content ">
             <div class="modal-header">
                 <h5 class="modal-title">{{ sheet.title }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span class="cross" aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>{{ sheet.content }}</p>
+                <p class="card-text">{{ sheet.description }}</p>
+                <hr>
+                <div>{{ sheet.content | raw }}</div>
             </div>
 
         </div>

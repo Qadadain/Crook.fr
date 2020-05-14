@@ -11,7 +11,7 @@ class AdminController extends AbstractController
 {
     const LIMIT = 10;
 
-    public function home()
+    public function home(): string
     {
         $sheetManager = new SheetManager();
         $sheets = $sheetManager->selectForAdmin();
@@ -29,7 +29,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    public function allLanguage()
+    public function allLanguage(): string
     {
         $languageManager = new LanguageManager();
         $language = $languageManager->selectForAdmin();
@@ -39,19 +39,8 @@ class AdminController extends AbstractController
             'limit' => $limit,
         ]);
     }
-
-    public function changeLanguage($limit)
-    {
-        $languageManager = new LanguageManager();
-        $language = $languageManager->ajaxLanguage($limit);
-        $count = count($language);
-        return $this->twig->render('Admin/ajax/ajaxLanguage.html.twig', [
-            'languages' => $language,
-            'lengthTable' => $count,
-        ]);
-    }
     
-    public function allsheet()
+    public function allsheet(): string
     {
         $sheetManager = new SheetManager();
         $sheets = $sheetManager->getTenSheet();
@@ -62,18 +51,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    public function changeSheet($limit)
-    {
-        $sheetManager = new SheetManager();
-        $sheet = $sheetManager->ajaxSheet($limit);
-        $count = count($sheet);
-        return $this->twig->render('Admin/ajax/ajaxSheet.html.twig', [
-            'sheets' => $sheet,
-            'lengthTable' => $count,
-        ]);
-    }
-
-    public function allUser()
+    public function allUser(): string
     {
         $userManager = new UserManager();
         $users = $userManager->selectForAdmin();
@@ -84,7 +62,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    public function editLanguage(int $id)
+    public function editLanguage(int $id): string
     {
         $errors = [];
         if (!empty($_POST)) {
@@ -102,43 +80,49 @@ class AdminController extends AbstractController
         ]);
     }
 
-    public function ajaxDeleteLanguage()
+    public function editUser(int $id): string
     {
-        $languageManager = new LanguageManager();
-        $languageManager->delete($_POST['id']);
-        return json_encode('Le language a été supprimer');
-    }
-
-    public function editUser(int $id)
-    {
+        $errors = [];
+        $success = false;
+        if (!empty($_POST)) {
+            $adminService = new AdminService();
+            $errors = $adminService->userForm($_POST);
+            if (empty($errors)) {
+                $success = $adminService->editUser($_POST);
+            }
+        }
         $userManager = new UserManager();
-        $users = $userManager->selectOneById($id);
+        $user = $userManager->selectOneById($id);
         return $this->twig->render('Admin/editUser.html.twig', [
-            'users' => $users,
+            'user' => $user,
+            'errors' => $errors,
+            'success' => $success,
         ]);
     }
 
-    public function changeUser($limit)
+    public function editSheet(int $id): string
     {
-        $userManager = new UserManager();
-        $users = $userManager->ajaxUser($limit);
-        $count = count($users);
-        
-        return $this->twig->render('Admin/ajax/ajaxUser.html.twig', [
-            'users' => $users,
-            'lengthTable' => $count,
-        ]);
-    }
-    public function ajaxDeleteUser()
-    {
-        $userManager = new UserManager();
-        $userManager->delete($_POST['id']);
-        return json_encode('L\'utilisateur a été supprimer');
-    }
-    public function ajaxDeleteSheet()
-    {
+        $errors = [];
+        $success = false;
+        if (!empty($_POST)) {
+            $adminService = new AdminService();
+            $errors = $adminService->sheetForm($_POST);
+            if (empty($errors)) {
+                $success = $adminService->editSheet($_POST);
+            }
+        }
         $sheetManager = new SheetManager();
-        $sheetManager->delete($_POST['id']);
-        return json_encode('Le sheet a été supprimer');
+        $sheet = $sheetManager->getSheetById($id);
+        $languageManager = new LanguageManager();
+        $languages = $languageManager->selectAll();
+        $userManager = new UserManager();
+        $users = $userManager->selectAll();
+        return $this->twig->render('Admin/editSheet.html.twig', [
+            'sheet' => $sheet,
+            'languages' => $languages,
+            'users' => $users,
+            'errors' => $errors,
+            'success' => $success,
+        ]);
     }
 }

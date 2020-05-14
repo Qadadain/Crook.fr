@@ -9,7 +9,7 @@ for (let i = 0; i < trashUser.length; i++) {
             $.ajax({
                 type: 'POST',
                 data: formData,
-                url: '/admin/ajaxDeleteUser',
+                url: '/ajax/ajaxDeleteUser',
                 timeout: 3000,
                 dataType: 'json',
                 processData: false,

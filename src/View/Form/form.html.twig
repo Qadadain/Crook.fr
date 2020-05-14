@@ -12,16 +12,20 @@
         <form method="post">
             <div class="form-group">
                 <label for="title">Titre</label>
-                <input type="text" class="form-control" placeholder="in_array()" name="title" value="{{ post is defined ? post.title : '' }}" required>
+                <input type="text" class="form-control" placeholder="in_array()"
+                       name="title" value="{{ post is defined ? post.title : '' }}"
+                       minlength="5" maxlength="50" required>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" placeholder="Une courte description de sont utilité" name="description" value="{{ post is defined ? post.description : '' }}" required>
+                <input type="text" class="form-control" placeholder="Une courte description de son utilité"
+                       name="description" value="{{ post is defined ? post.description : '' }}"
+                       minlength="5" maxlength="50" required>
             </div>
             <div class="form-group">
-                <label for="language">Language</label>
-                <select name="language" id="language" class="form-control" name="language" required>
-                    <option value="0">Veuillez choisir un language</option>
+                <label for="language">Langage</label>
+                <select name="language" id="language" class="form-control" name="language">
+                    <option value="">Veuillez sélectionner un langage</option>
                     {% for language in languages %}
                         {% if post is defined and post.language is same as(language.id) %}
                             <option value="{{ language.id }}" selected>{{ language.name }}</option>
@@ -30,20 +34,25 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseInput" aria-expanded="false" aria-controls="collapseInput">
-                    Ajoutée un language
+                <button class="btn btn-primary mt-2" type="button" data-toggle="collapse"
+                        data-target="#collapseInput" aria-expanded="false"
+                        aria-controls="collapseInput">
+                    Créer un langage
                 </button>
                 </p>
                 <div class="collapse" id="collapseInput">
                     <div class="card card-body">
                         <label for="newLanguage">Nom du langage</label>
-                        <input class="form-control" name="newLanguage" id="newLanguage" type="text">
+                        <input class="form-control" name="newLanguage"
+                               id="newLanguage" type="text" minlength="5" maxlength="50">
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="content">Ajoute ton sheet</label>
-                <textarea name="content" id="content" class="form-control" cols="30" rows="10" required></textarea>
+                <textarea name="content" id="content" class="form-control"
+                          cols="30" rows="10" placeholder="Vous pouvez écrire en Markdown :)"
+                          minlength="5" required></textarea>
             </div>
             <div class="form-group row">
                 <div class="col-6 text-center">

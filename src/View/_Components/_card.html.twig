@@ -7,7 +7,7 @@
               <i class="fas fa-chevron-down chevron {{ sheet.vote == '-1' ? 'vote-down' : '' }}" data-sheetId="{{ sheet.id }}" data-userId="{{ session.id }}" data-value="-1"></i>
           </span>
         {% endif %}
-            <p class="ml-2 mb-0 " id="totalVote-{{ sheet.id }}">{{ sheet.popularity ?? 0 }}</p>
+            <p class="ml-2 mb-0 " id="totalVote-{{ sheet.id }}">{{ sheet.popularity ?? 0 }} votes</p>
         </span>
         {% if session.id is defined %}
         <span class="col-6 text-right">

@@ -33,6 +33,7 @@ class UserController extends AbstractController
                 $_SESSION['pseudo'] = $userData['pseudo'];
                 $_SESSION['role_user'] = $userData['role_user'];
                 header('Location: /');
+                exit;
             } else {
                 $error = 'Mauvais mot de passe ou adresse email';
                 return $this->twig->render('User/user.html.twig', [

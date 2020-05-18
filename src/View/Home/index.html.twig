@@ -1,7 +1,6 @@
 {% extends 'layout.html.twig' %}
-
+{% block title %}Acceuil{% endblock %}
 {% block content %}
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
@@ -20,7 +19,6 @@
         </p>
     </div>
 </div>
-
     <hr>
     <div class="text-center">
     <h2 class="upper">Sheet ajouté récemment</h2>
@@ -32,7 +30,6 @@
             {% endfor %}
         </div>
     </div>
-    {# end Carousel #}
 {% endblock %}
 
 {% block javascript %}

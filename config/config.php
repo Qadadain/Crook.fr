@@ -10,7 +10,7 @@
  */
 
 
-define('APP_DEV', true);
+define('APP_DEV', false);
 
 //Model (for connexion data, see unversionned db.php)
 //VIew

@@ -17,7 +17,6 @@ for (let i = 0; i < chevron.length; i++) {
             processData: false,
             contentType: false,
             success: (data) => {
-                console.log(data);
                 $('#totalVote-'+idSheet).html(data.total);
             }, error: (error) => {
                 // TODO redirect to error page;

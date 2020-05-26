@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.crook.fr/</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/home/about</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/Language/list</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/user/signin</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/2</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/3</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/1</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/4</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/5</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/6</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/7</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/8</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/sheets/9</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.crook.fr/language/novalid</loc>
+  <lastmod>2020-05-18T09:58:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

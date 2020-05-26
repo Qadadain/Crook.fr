@@ -375,8 +375,12 @@ h6 {
         Carousel
      */
     /*
-        Form
+        languages
      */
+    .mobile-apple{
+        width: 100px;
+        height: 100px;
+    }
 
 }
 

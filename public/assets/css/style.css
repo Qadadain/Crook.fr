@@ -34,7 +34,6 @@ h2.upper {
 }
 
 p.card-text {
-    height: 96px;
     margin: 0;
     width: 400px;
 }
@@ -306,7 +305,13 @@ h6 {
     color: aliceblue;
 }
 
-
+.linkedin{
+    display: flex;
+    justify-content: center;
+}
+.margin-footer{
+    margin-left: 16px;
+}
 /*
     login
  */

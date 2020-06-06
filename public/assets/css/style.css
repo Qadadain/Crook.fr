@@ -34,7 +34,6 @@ h2.upper {
 }
 
 p.card-text {
-    height: 96px;
     margin: 0;
     width: 400px;
 }
@@ -277,6 +276,12 @@ i.fa-search-plus {
 .modal-header {
     background-color: #1b1b33;
 }
+.modal-content{
+    width: 980px;
+}
+.modal-dialog{
+    max-width: 980px;
+}
 
 span.cross {
     color: aliceblue;
@@ -306,7 +311,13 @@ h6 {
     color: aliceblue;
 }
 
-
+.linkedin{
+    display: flex;
+    justify-content: center;
+}
+.margin-footer{
+    margin-left: 16px;
+}
 /*
     login
  */

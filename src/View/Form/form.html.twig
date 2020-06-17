@@ -24,9 +24,9 @@
                        minlength="5" maxlength="50" required>
             </div>
             <div class="form-group">
-                <label for="language">Langage</label>
+                <label for="language">Technologie</label>
                 <select name="language" id="language" class="form-control" name="language">
-                    <option value="">Veuillez sélectionner un langage</option>
+                    <option value="">Veuillez sélectionner une technologie</option>
                     {% for language in languages %}
                         {% if post is defined and post.language is same as(language.id) %}
                             <option value="{{ language.id }}" selected>{{ language.name }}</option>
@@ -38,12 +38,11 @@
                 <button class="btn btn-primary mt-2" type="button" data-toggle="collapse"
                         data-target="#collapseInput" aria-expanded="false"
                         aria-controls="collapseInput">
-                    Créer un langage
+                    Créer une technologie
                 </button>
-                </p>
                 <div class="collapse" id="collapseInput">
                     <div class="card card-body">
-                        <label for="newLanguage">Nom du langage</label>
+                        <label for="newLanguage">Nom de la technologie</label>
                         <input class="form-control" name="newLanguage"
                                id="newLanguage" type="text" minlength="5" maxlength="50">
                     </div>

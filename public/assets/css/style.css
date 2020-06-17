@@ -60,7 +60,7 @@ p.nav-link {
 }
 
 nav {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     align-content: center;
     margin-bottom: 50px;
 }
@@ -358,6 +358,9 @@ h6 {
     .card{
         margin-left: 0;
     }
+    .modal-content{
+        width: 300px;
+    }
     /*
     About Us
      */
@@ -381,6 +384,9 @@ h6 {
 
 @media (max-width: 769px) {
 
+    .modal-content{
+        width: 650px;
+    }
     /*
         Navbar
      */
@@ -400,9 +406,27 @@ h6 {
     }
 
 }
+@media (max-width: 855px) {
+    .modal-content{
+        max-width: 93% ;
+        margin: 0 auto;
+    }
+    .card-text{
+        max-width: 100%;
+    }
+    .modal-header{
+        max-width: 100%;
+    }
+
+}
 
 @media (max-width: 992px) {
-
+    .modal-content{
+        width: 850px;
+    }
+.show .modal-center{
+    display: flex;
+}
     /*
         Navbar
      */

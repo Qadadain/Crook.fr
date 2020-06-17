@@ -387,6 +387,9 @@ h6 {
     .modal-content{
         width: 650px;
     }
+    .mobile-none{
+        display: none;
+    }
     /*
         Navbar
      */
